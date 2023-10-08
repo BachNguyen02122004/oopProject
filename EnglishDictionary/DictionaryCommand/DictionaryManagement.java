@@ -22,7 +22,7 @@ public class DictionaryManagement {
     }
 
     public void insertFromFile() {
-        String path = "EnglishDictionary/resources/dictionaries.txt";
+        String path = "./resources/dictionaries.txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
