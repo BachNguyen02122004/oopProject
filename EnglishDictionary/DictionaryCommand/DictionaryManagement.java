@@ -22,7 +22,7 @@ public class DictionaryManagement {
     }
 
     public void insertFromFile() {
-        String path = "./resources/dictionaries.txt";
+        String path = "EnglishDictionary/resources/dictionaries.txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
@@ -88,13 +88,14 @@ public class DictionaryManagement {
     }
 
     public void addWord(String word_target, String word_explain) {
+
         Word newWord = new Word(word_target, word_explain);
         dictionaryWords.add(newWord);
         updateFile();
     }
 
     public void updateFile() {
-        String path = "./dictionaries.txt";
+        String path = "EnglishDictionary/resources/dictionaries.txt";
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
             for (Word word : dictionaryWords) {
