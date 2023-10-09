@@ -8,8 +8,10 @@ public class mainTest {
         DictionaryCommandLine dictionaryCommandLine = new DictionaryCommandLine();
         dictionaryCommandLine.dictionaryBasic();
         dictionaryCommandLine.addWord("bach", "bách nè");
-        System.out.println(dictionaryCommandLine.dictionaryLookup());
-
+        dictionaryCommandLine.addWord("cuong", "devhongquao đây");
+        dictionaryCommandLine.removeWord("bach");
+//        System.out.println(dictionaryCommandLine.dictionaryLookup());
+        dictionaryCommandLine.dictionarySearch("cu");
     }
 }
 

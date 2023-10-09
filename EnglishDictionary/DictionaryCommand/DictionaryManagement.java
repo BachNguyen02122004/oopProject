@@ -28,7 +28,7 @@ public class DictionaryManagement {
 
             String word_target = "";
             StringBuilder word_explain = new StringBuilder();
-            String wordLine ;
+            String wordLine;
             while ((wordLine = br.readLine()) != null) {
                 if (wordLine.startsWith("|")) {
                     if (word_target.length() > 0) {
@@ -56,7 +56,7 @@ public class DictionaryManagement {
         }
     }
 
-    // binary
+    // sắp xếp từ bằng binarySearch
     public void sortDictionary() {
         Collections.sort(dictionaryWords, new Comparator<Word>() {
             @Override
@@ -67,7 +67,7 @@ public class DictionaryManagement {
         });
     }
 
-
+    // tìm kiếm từ trong file.txt
     public String dictionaryLookup() {
         int l = 0, r = dictionaryWords.size() - 1;
         Scanner sc = new Scanner(System.in);
@@ -87,14 +87,17 @@ public class DictionaryManagement {
         return "Không tìm thấy từ!!!";
     }
 
+    // thêm từ vào file.txt
     public void addWord(String word_target, String word_explain) {
 
         Word newWord = new Word(word_target, word_explain);
         dictionaryWords.add(newWord);
-        updateFile();
+        sortDictionary();
+        exportToFile();
     }
 
-    public void updateFile() {
+    // lấy dữ liệu từ file
+    public void exportToFile() {
         String path = "EnglishDictionary/resources/dictionaries.txt";
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
@@ -109,6 +112,26 @@ public class DictionaryManagement {
         }
     }
 
+    // hàm xóa từ
+    public void removeWord(String word_target) {
+        int length = dictionaryWords.size();
+        for (int i = 0; i < length; i++) {
+            if (dictionaryWords.get(i).getWord_target().equals(word_target)) {
+                dictionaryWords.remove(i);
+                i--;
+                length--;
+            }
+        }
+        exportToFile();
+    }
 
+    // hàm tìm kiếm từ hoặc cụm từ
+    public void dictionarySearch(String word_searching){
+        for(Word word:dictionaryWords){
+            if(word.getWord_target().startsWith(word_searching)){
+                System.out.println(word.getWord_target());
+            }
+        }
+    }
 
 }
