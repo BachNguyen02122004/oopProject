@@ -22,7 +22,7 @@ public class DictionaryManagement {
     }
 
     public void insertFromFile() {
-        String path = "EnglishDictionary/resources/dictionaries.txt";
+        String path = "EnglishDictionary/resources/dictionariesCommandLine.txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
@@ -88,17 +88,109 @@ public class DictionaryManagement {
     }
 
     // thêm từ vào file.txt
-    public void addWord(String word_target, String word_explain) {
+//    public void addWord(String word_target, String word_explain) {
+//
+//        Word newWord = new Word(word_target, word_explain);
+//        dictionaryWords.add(newWord);
+//        sortDictionary();
+//        exportToFile();
+//    }
 
+    // Thêm từ vào file.txt bằng dòng lệnh
+    public void addWord() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhập từ tiếng Anh: ");
+        String word_target = sc.nextLine();
+        System.out.print("Nhập nghĩa tiếng Việt: ");
+        String word_explain = sc.nextLine();
         Word newWord = new Word(word_target, word_explain);
+        System.out.println("Thêm thành công");
         dictionaryWords.add(newWord);
         sortDictionary();
         exportToFile();
     }
 
+    // hàm xóa từ
+//    public void removeWord(String word_target) {
+//        int length = dictionaryWords.size();
+//        for (int i = 0; i < length; i++) {
+//            if (dictionaryWords.get(i).getWord_target().equals(word_target)) {
+//                dictionaryWords.remove(i);
+//                i--;
+//                length--;
+//            }
+//        }
+//        exportToFile();
+//    }
+
+    // Sửa từ bằng dòng lệnh
+    public void updateWord() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Từ tiếng Anh muốn sửa: ");
+        String word_target = sc.nextLine();
+
+        int index = -1; // Lưu vị trí từ muốn sửa
+
+        // Tìm từ người dùng nhập vào
+        for (int i = 0; i < dictionaryWords.size(); i++) {
+            if (dictionaryWords.get(i).getWord_target().equalsIgnoreCase(word_target)) {
+                index = i;
+                break;
+            }
+        }
+
+        // Nếu tìm thấy từ muốn sửa trong danh sách
+        if (index != -1) {
+            System.out.println("Bạn muốn sửa gì?");
+            System.out.println("Nhập số 1: Sửa từ tiếng Anh");
+            System.out.println("Nhập số 2: Sửa nghĩa tiếng Việt");
+            int choice = sc.nextInt();
+            sc.nextLine();  // Tránh trôi lệnh
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Nhập từ tiếng Anh mới: ");
+                    String new_word_target = sc.nextLine();
+                    dictionaryWords.get(index).setWord_target(new_word_target);
+                    break;
+                case 2:
+                    System.out.print("Nhập nghĩa tiếng Việt mới: ");
+                    String new_word_explain = sc.nextLine();
+                    dictionaryWords.get(index).setWord_explain(new_word_explain);
+                    break;
+                default:
+                    System.out.println("Lựa chọn không hợp lệ. Vui lòng nhập lại!");
+                    return;
+            }
+
+            System.out.println("Sửa từ thành công");
+            sortDictionary();
+            exportToFile();
+        } else {
+            System.out.println("Không tìm thấy từ cần sửa.");
+        }
+    }
+
+    // hàm xóa từ bằng dòng lệnh
+    public void removeWord() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhập từ muốn xóa: ");
+        String word_target = sc.nextLine();
+        int length = dictionaryWords.size();
+        for (int i = 0; i < length; i++) {
+            if (dictionaryWords.get(i).getWord_target().equals(word_target)) {
+                dictionaryWords.remove(i);
+                i--;
+                length--;
+            }
+        }
+        System.out.println("Xóa thành công");
+        exportToFile();
+    }
+
     // lấy dữ liệu từ file
     public void exportToFile() {
-        String path = "EnglishDictionary/resources/dictionaries.txt";
+        String path = "EnglishDictionary/resources/dictionariesCommandLine.txt";
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
             for (Word word : dictionaryWords) {
@@ -112,23 +204,10 @@ public class DictionaryManagement {
         }
     }
 
-    // hàm xóa từ
-    public void removeWord(String word_target) {
-        int length = dictionaryWords.size();
-        for (int i = 0; i < length; i++) {
-            if (dictionaryWords.get(i).getWord_target().equals(word_target)) {
-                dictionaryWords.remove(i);
-                i--;
-                length--;
-            }
-        }
-        exportToFile();
-    }
-
     // hàm tìm kiếm từ hoặc cụm từ
-    public void dictionarySearch(String word_searching){
-        for(Word word:dictionaryWords){
-            if(word.getWord_target().startsWith(word_searching)){
+    public void dictionarySearch(String word_searching) {
+        for (Word word : dictionaryWords) {
+            if (word.getWord_target().startsWith(word_searching)) {
                 System.out.println(word.getWord_target());
             }
         }
