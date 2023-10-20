@@ -14,6 +14,7 @@ public class mainTest {
 //        System.out.println(dictionaryCommandLine.dictionaryLookup());
 //        dictionaryCommandLine.dictionarySearch("cu");
 //        dictionaryCommandLine.updateWord();
+        dictionaryCommandLine.dictionaryAdvanced();
     }
 }
 

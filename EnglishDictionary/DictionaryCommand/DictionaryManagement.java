@@ -68,23 +68,29 @@ public class DictionaryManagement {
     }
 
     // tìm kiếm từ trong file.txt
-    public String dictionaryLookup() {
+    public void dictionaryLookup() {
+        // check tìm thấy từ hay ko
+        boolean ok = false;
         int l = 0, r = dictionaryWords.size() - 1;
         Scanner sc = new Scanner(System.in);
+        System.out.print("Nhập từ cần tìm kiếm :");
         String word_target = sc.nextLine();
         while (l <= r) {
             int m = (l + r) / 2;
             if (dictionaryWords.get(m).getWord_target().equals(word_target)) {
+                ok = true;
                 String ans = dictionaryWords.get(m).getWord_explain();
-                return ans;
+                System.out.println(ans);
+                break;
             } else if (dictionaryWords.get(m).getWord_target().compareTo(word_target) < 0) {
                 l = m + 1;
             } else {
                 r = m - 1;
             }
         }
-
-        return "Không tìm thấy từ!!!";
+        if(!ok) {
+            System.out.println("Không tìm thấy từ!!!");
+        }
     }
 
     // thêm từ vào file.txt
