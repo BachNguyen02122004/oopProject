@@ -82,6 +82,7 @@ public class DictionaryCommandLine extends DictionaryManagement {
                     break;
                 case 7:
                     System.out.println("Play game!!!");
+                    game();
                     break;
                 case 8:
                     insertFromFile();

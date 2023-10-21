@@ -219,4 +219,58 @@ public class DictionaryManagement {
         }
     }
 
+    //game
+    public void game() {
+        String path = "EnglishDictionary/resources/game.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            ArrayList<ArrayList<String>> questions = new ArrayList<>();
+            String question = "";
+            String answer = "";
+            String key = "";
+            String wordLine;
+            int i = 0;
+            while ((wordLine = br.readLine()) != null) {
+                if (i % 3 == 0) {
+                    question = wordLine;
+                } else if(i % 3 == 1) {
+                    answer = wordLine;
+                } else {
+                    key = wordLine;
+                    ArrayList<String> tmp = new ArrayList<>();
+                    tmp.add(question);
+                    tmp.add(answer);
+                    tmp.add(key);
+                    questions.add(tmp);
+                }
+                i++;
+            }
+            Random rand = new Random();
+            int n = questions.size();
+            int k = 0;
+            // select random question from the list
+            while (k < n) {
+                int maxRand = questions.size();
+                int randomNumber = rand.nextInt(maxRand);
+                System.out.println((k + 1) + ". " +  questions.get(randomNumber).get(0));
+                System.out.println(questions.get(randomNumber).get(1));
+                Scanner sc = new Scanner(System.in);
+                String ans = sc.nextLine();
+                if (!ans.toUpperCase().equals(questions.get(randomNumber).get(2))) {
+                    System.out.println("Bạn gà quá! Thua rồi!");
+                    break;
+                } else {
+                    System.out.println("Bạn đã trả lời đúng");
+                    questions.remove(randomNumber);
+                }
+                k++;
+            }
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
