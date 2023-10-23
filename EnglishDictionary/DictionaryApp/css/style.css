@@ -1,0 +1,28 @@
+#navbar {
+    -fx-background-color: blue;
+
+
+}
+.pane-search {
+    -fx-background-color : #F4F4F4;
+}
+
+.label {
+    -fx-fill : white;
+}
+
+.label-1{
+    -fx-text-fill : white;
+    -fx-background-color : #033565;
+}
+
+.label-2, .label-3 {
+    -fx-text-fill : white;
+    -fx-background-color :#0A457F;
+}
+
+#icon-svg {
+    -fx-translate-x : 50;
+    -fx-translate-y : 50;
+
+}
