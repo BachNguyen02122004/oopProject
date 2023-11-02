@@ -1,28 +1,11 @@
-#navbar {
-    -fx-background-color: blue;
-
-
-}
-.pane-search {
-    -fx-background-color : #F4F4F4;
+#container{
+    -fx-background-color: #f2c2f3;
 }
 
-.label {
-    -fx-fill : white;
+#bar{
+    -fx-cursor: hand;
 }
 
-.label-1{
-    -fx-text-fill : white;
-    -fx-background-color : #033565;
-}
-
-.label-2, .label-3 {
-    -fx-text-fill : white;
-    -fx-background-color :#0A457F;
-}
-
-#icon-svg {
-    -fx-translate-x : 50;
-    -fx-translate-y : 50;
-
+#searchBtn{
+    -fx-background-color: rgba(255, 255, 255, 0);
 }

@@ -11,7 +11,7 @@ public class HelloApplication extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("./view/hello-view.fxml"));
         primaryStage.setTitle("FXML Example");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root, 748, 542));
         primaryStage.show();
     }
 

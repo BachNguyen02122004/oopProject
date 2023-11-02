@@ -101,7 +101,7 @@ public class DictionaryCommandLine extends DictionaryManagement {
     public void dictionaryBasic() {
         insertFromFile();
         sortDictionary();
-        showAllWords();
+        //showAllWords();
     }
 
 }
