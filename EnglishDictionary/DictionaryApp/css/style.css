@@ -2,10 +2,15 @@
     -fx-background-color: #f2c2f3;
 }
 
-#bar{
+.bar{
     -fx-cursor: hand;
 }
 
 #searchBtn{
     -fx-background-color: rgba(255, 255, 255, 0);
+}
+
+#definitionListView{
+    -fx-wrap-text: true;
+    -fx-max-width: 355;
 }
