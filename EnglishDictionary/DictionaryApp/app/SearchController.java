@@ -5,8 +5,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javafx.fxml.FXML;
@@ -15,10 +17,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import org.w3c.dom.Text;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+//import javax.swing.text.html.ImageView;
+import javafx.scene.image.ImageView;
+
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +36,9 @@ public class SearchController {
 
     private ObservableList<String> allWords;
     private Map<String, String> wordToDefinitionMap = new HashMap<>();
+
+    @FXML
+    private ImageView changeDef;
 
     @FXML
     public void initialize() {
@@ -68,8 +73,42 @@ public class SearchController {
         wordListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             showWordDefinition(newValue);
         });
-
         searchTF.setOnKeyReleased(this::handleSearch);
+
+        // Bắt sự kiện click cho ImageView
+        changeDef.setOnMouseClicked(event -> handlePencilClick());
+    }
+
+    @FXML
+    private void handlePencilClick() {
+        definitionListView.setEditable(true);
+    }
+
+    // Bắt sự kiện người dùng nhập vào(Hàm update)
+    @FXML
+    private void handleSaveClick() {
+        String selectedWord = wordListView.getSelectionModel().getSelectedItem(); // lấy từ được chọn
+        String updatedDefinition = definitionListView.getText(); // lấy dữ liệu người dùng nhập
+        definitionListView.setEditable(false);
+
+        if (selectedWord != null) {
+            wordToDefinitionMap.put(selectedWord, updatedDefinition); // push từ chọn và sự thay đổi vào map
+            saveWordsToFile();
+
+            CustomeToatify.showToast((Stage) searchTF.getScene().getWindow(), "Đã lưu thay đổi!");
+        }
+    }
+
+    // render lại từ điển
+    private void saveWordsToFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("EnglishDictionary/resources/dictionaries.txt"))) {
+            for (Map.Entry<String, String> entry : wordToDefinitionMap.entrySet()) {
+                writer.write("|" + entry.getKey() + "\n");
+                writer.write(entry.getValue() + "\n\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Có lỗi xảy ra");
+        }
     }
 
     public void loadWordsFromFile(String filePath) {

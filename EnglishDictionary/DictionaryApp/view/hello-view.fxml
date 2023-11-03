@@ -74,12 +74,12 @@
                   <Image url="@../image/eraser.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="56.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <ImageView fx:id="changeDef" onMouseClicked="#handlePencilClick" fitHeight="32.0" fitWidth="32.0" layoutX="56.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
                <image>
                   <Image url="@../image/pencil.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="42.0" styleClass="bar" fitWidth="32.0" layoutX="105.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView onMouseClicked="#handleSaveClick" fitHeight="42.0" styleClass="bar" fitWidth="32.0" layoutX="105.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/floppy-disk.png" />
                </image>
