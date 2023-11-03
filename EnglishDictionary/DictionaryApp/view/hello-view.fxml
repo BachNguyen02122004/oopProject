@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="844.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.SearchController">
+<AnchorPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="844.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.SearchController">
    <children>
       <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
          <image>
@@ -69,17 +74,17 @@
                   <Image url="@../image/loudspeaker.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="156.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <ImageView fx:id="handleEraser" fitHeight="32.0" fitWidth="32.0" layoutX="156.0" layoutY="6.0" onMouseClicked="#handleEraser" pickOnBounds="true" preserveRatio="true" styleClass="bar">
                <image>
                   <Image url="@../image/eraser.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="changeDef" onMouseClicked="#handlePencilClick" fitHeight="32.0" fitWidth="32.0" layoutX="56.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <ImageView fx:id="changeDef" fitHeight="32.0" fitWidth="32.0" layoutX="56.0" layoutY="6.0" onMouseClicked="#handlePencilClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
                <image>
                   <Image url="@../image/pencil.png" />
                </image>
             </ImageView>
-            <ImageView onMouseClicked="#handleSaveClick" fitHeight="42.0" styleClass="bar" fitWidth="32.0" layoutX="105.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="42.0" fitWidth="32.0" layoutX="105.0" layoutY="6.0" onMouseClicked="#handleSaveClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
                <image>
                   <Image url="@../image/floppy-disk.png" />
                </image>

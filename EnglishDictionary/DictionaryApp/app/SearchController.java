@@ -3,8 +3,7 @@ package DictionaryApp.app;
 import DictionaryCommand.Word;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
@@ -12,8 +11,6 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import org.w3c.dom.Text;
 
@@ -59,10 +56,10 @@ public class SearchController {
                         if (item != null && !empty) {
                             if (isSelected()) {
                                 // color select_item
-                                setBackground(Background.fill(Color.rgb(131,233,247)));
+                                setBackground(Background.fill(Color.rgb(131, 233, 247)));
                                 setTextFill(Color.BLACK);
                             } else {
-                                setBackground(Background.fill(Color.rgb(237,238,240)));
+                                setBackground(Background.fill(Color.rgb(237, 238, 240)));
                             }
                         }
                     }
@@ -156,6 +153,21 @@ public class SearchController {
         if (word != null && wordToDefinitionMap.containsKey(word)) {
             String definition = wordToDefinitionMap.get(word);
             definitionListView.setText(definition);
+        }
+    }
+
+    @FXML
+    private void handleEraser(MouseEvent event) {
+        String selectedWord = wordListView.getSelectionModel().getSelectedItem();
+        if (selectedWord != null) {
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+            confirm.setTitle("Remove");
+            confirm.setHeaderText("You're deleting a word");
+            confirm.setContentText("Are you sure?");
+            if (confirm.showAndWait().get() == ButtonType.OK) {
+                wordToDefinitionMap.remove(selectedWord);
+                saveWordsToFile();
+            }
         }
     }
 }
