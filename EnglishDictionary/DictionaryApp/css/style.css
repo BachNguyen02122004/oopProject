@@ -14,3 +14,13 @@
     -fx-wrap-text: true;
     -fx-max-width: 355;
 }
+
+
+.related-words, .translate-words {
+    -fx-border-radius : 5;
+    -fx-padding : 10;
+    -fx-border-style : solid;
+    -fx-border-color : blue;
+    -fx-border-width : 1;
+    -fx-margin-top : 5px;
+}
