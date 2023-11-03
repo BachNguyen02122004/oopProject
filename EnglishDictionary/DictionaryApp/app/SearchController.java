@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -36,6 +37,7 @@ public class SearchController {
 
     @FXML
     public void initialize() {
+        definitionListView.setEditable(false);
         allWords = FXCollections.observableArrayList();
         loadWordsFromFile("EnglishDictionary/resources/dictionaries.txt");
         wordListView.setItems(allWords);
@@ -52,12 +54,11 @@ public class SearchController {
                         if (item != null && !empty) {
                             if (isSelected()) {
                                 // color select_item
-                                setBackground(Background.fill(Color.INDIGO));
+                                setBackground(Background.fill(Color.rgb(131,233,247)));
+                                setTextFill(Color.BLACK);
                             } else {
                                 setBackground(Background.fill(Color.rgb(237,238,240)));
                             }
-                        } else {
-                            setBackground(Background.fill(Color.rgb(237,238,240)));
                         }
                     }
                 };
