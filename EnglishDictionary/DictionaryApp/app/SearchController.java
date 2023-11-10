@@ -18,9 +18,7 @@ import org.w3c.dom.Text;
 import javafx.scene.image.ImageView;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class SearchController {
@@ -103,6 +101,7 @@ public class SearchController {
                 writer.write("|" + entry.getKey() + "\n");
                 writer.write(entry.getValue() + "\n\n");
             }
+            Collections.sort(allWords);
         } catch (IOException e) {
             System.out.println("Có lỗi xảy ra");
         }
@@ -134,6 +133,8 @@ public class SearchController {
                 allWords.add(newWord.getWord_target());
                 wordToDefinitionMap.put(newWord.getWord_target(), newWord.getWord_explain());
             }
+
+            Collections.sort(allWords);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -143,9 +144,12 @@ public class SearchController {
 
     private void handleSearch(KeyEvent keyEvent) {
         String searchText = searchTF.getText().toLowerCase();
-        List<String> filteredWords = wordToDefinitionMap.keySet().stream()
-                .filter(word -> word.toLowerCase().startsWith(searchText))
-                .collect(Collectors.toList());
+        List<String> filteredWords = new ArrayList<>();
+        for (String search : allWords) {
+            if (search.startsWith(searchText)) {
+                filteredWords.add(search);
+            }
+        }
         wordListView.setItems(FXCollections.observableArrayList(filteredWords));
     }
 
@@ -166,6 +170,7 @@ public class SearchController {
             confirm.setContentText("Are you sure?");
             if (confirm.showAndWait().get() == ButtonType.OK) {
                 wordToDefinitionMap.remove(selectedWord);
+                definitionListView.setText(null);
                 saveWordsToFile();
             }
         }
