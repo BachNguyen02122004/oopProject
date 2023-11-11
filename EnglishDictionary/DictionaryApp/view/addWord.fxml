@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane id="container" fx:id="addWord" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="844.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.AddController">
+<AnchorPane id="container" fx:id="addWord" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="844.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.AddController">
     <children>
+      <TextField fx:id="newWord" layoutX="144.0" layoutY="125.0" prefHeight="44.0" prefWidth="354.0" promptText="Nhập từ tiếng anh vào đây..." />
         <ImageView fx:id="searchScene" fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="127.0" onMouseClicked="#searchScene" pickOnBounds="true" preserveRatio="true" styleClass="bar">
             <image>
                 <Image url="@../image/loupe.png" />
@@ -35,10 +32,33 @@
                 <Image url="@../image/dictionary.png" />
             </image>
         </ImageView>
-      <TextField fx:id="newWord" layoutX="168.0" layoutY="95.0" prefHeight="32.0" prefWidth="508.0" />
-      <TextArea fx:id="newWordDef" layoutX="168.0" layoutY="173.0" prefHeight="285.0" prefWidth="508.0" />
-      <Label layoutX="168.0" layoutY="53.0" prefHeight="25.0" prefWidth="508.0" text="Từ muốn thêm" />
-      <Label layoutX="168.0" layoutY="136.0" prefHeight="25.0" prefWidth="508.0" text="Nghĩa của từ" />
-      <Button layoutX="381.0" layoutY="485.0" mnemonicParsing="false" onAction="#submitAdd" prefHeight="32.0" prefWidth="81.0" text="Xác nhận" />
+      <TextArea fx:id="newWordDef" layoutX="144.0" layoutY="208.0" prefHeight="219.0" prefWidth="354.0" promptText="Nhập nghĩa vào đây... " />
+      <Label layoutX="144.0" layoutY="87.0" prefHeight="33.0" prefWidth="354.0" styleClass="target-word" text="Từ vựng">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/word.png" />
+               </image>
+            </ImageView>
+         </graphic></Label>
+      <Label layoutX="144.0" layoutY="171.0" prefHeight="36.0" prefWidth="354.0" styleClass="meaning-word" text="Nghĩa của từ">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8_edit_property_64px.png" />
+               </image>
+            </ImageView>
+         </graphic></Label>
+      <Button layoutX="381.0" layoutY="463.0" mnemonicParsing="false" onAction="#submitAdd" prefHeight="32.0" prefWidth="81.0" styleClass="btn-submit" text="Xác nhận" />
+      <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="511.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/img3.jpg" />
+         </image>
+      </ImageView>
+      <Pane fx:id="paneHeader" layoutX="212.0" layoutY="35.0" prefHeight="44.0" prefWidth="434.0">
+         <children>
+            <Label fx:id="textHeader" alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="2.0" prefHeight="40.0" prefWidth="154.0" text="Thêm từ vựng" />
+         </children>
+      </Pane>
     </children>
 </AnchorPane>

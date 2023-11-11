@@ -25,3 +25,54 @@
     -fx-border-width : 1;
     -fx-margin-top : 5px;
 }
+
+#newWord, #newWordDef{
+       -fx-text-fill: #9f45b0;
+       -fx-border-color: #966FBD;
+       -fx-font-size: 14px;
+       -fx-border-width: 2;
+       -fx-background-radius: 5;
+       -fx-border-radius: 5;
+}
+
+.text-header {
+     -fx-font-size : 15;
+     -fx-border-width : 2;
+     -fx-border-color : red;
+     -fx-border-radius : 5;
+    -fx-padding : 20;
+}
+
+.meaning-word, .target-word {
+    -fx-font-size : 14px;
+    -fx-padding : 5px;
+    -fx-border-radius : 5;
+    -fx-font-style : italic;
+}
+
+#wordListView, #definitionListView{
+        -fx-font-size: 14px;
+        -fx-font-weight: 700;
+        -fx-padding: 2;
+        -fx-background-radius: 5;
+        -fx-border-radius: 5;
+}
+.btn-submit {
+    -fx-font-size : 14px;
+    -fx-border-radius : 2;
+    -fx-background-color :#63B8FF;
+}
+
+#paneHeader {
+    -fx-font-style : italic;
+    -fx-border-radius : 5;
+    -fx-border-style : solid;
+    -fx-border-width : 2;
+    -fx-border-color : blue;
+    -fx-background-color : #63B8FF;
+}
+
+#textHeader {
+    -fx-font-size : 20px;
+    -fx-padding : 5px 0;
+}
