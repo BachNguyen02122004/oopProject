@@ -1,10 +1,12 @@
 package DictionaryApp.app;
 
+import DictionaryApp.model.SceneSwitch;
 import DictionaryCommand.Word;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -28,9 +30,11 @@ public class SearchController {
     ListView<String> wordListView;
     @FXML
     TextArea definitionListView;
+    @FXML
+    AnchorPane hello;
 
-    private ObservableList<String> allWords;
-    private Map<String, String> wordToDefinitionMap = new HashMap<>();
+    public static ObservableList<String> allWords;
+    public static Map<String, String> wordToDefinitionMap = new HashMap<>();
 
     @FXML
     private ImageView changeDef;
@@ -95,7 +99,7 @@ public class SearchController {
     }
 
     // render lại từ điển
-    private void saveWordsToFile() {
+    public static void saveWordsToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("EnglishDictionary/resources/dictionaries.txt"))) {
             for (Map.Entry<String, String> entry : wordToDefinitionMap.entrySet()) {
                 writer.write("|" + entry.getKey() + "\n");
@@ -107,7 +111,7 @@ public class SearchController {
         }
     }
 
-    public void loadWordsFromFile(String filePath) {
+    public static void loadWordsFromFile(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String word_target = "";
             StringBuilder word_explain = new StringBuilder();
@@ -174,5 +178,10 @@ public class SearchController {
                 saveWordsToFile();
             }
         }
+    }
+
+    @FXML
+    private void addWordScene(MouseEvent event) throws IOException {
+        new SceneSwitch(hello, "./view/addWord.fxml");
     }
 }

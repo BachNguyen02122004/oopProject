@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="844.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.SearchController">
+<AnchorPane id="container" fx:id="hello" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="844.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.SearchController">
    <children>
       <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
          <image>
             <Image url="@../image/loupe.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="229.0" onMouseClicked="#addWordScene" pickOnBounds="true" preserveRatio="true" styleClass="bar">
          <image>
             <Image url="@../image/add.png" />
          </image>
