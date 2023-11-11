@@ -61,20 +61,26 @@ public class DictionaryCommandLine extends DictionaryManagement {
                     ctn = false;
                     break;
                 case 1:
-                    addWord();
+                    String word_target = sc.nextLine();
+                    String word_explain = sc.nextLine();
+                    addWord(word_target, word_explain);
                     break;
                 case 2:
-                    removeWord();
+                    String word = sc.nextLine();
+                    removeWord(word);
                     break;
                 case 3:
-                    updateWord();
+                    String update_target = sc.nextLine();
+                    String update_explain = sc.nextLine();
+                    updateWord(update_target, update_explain);
                     break;
                 case 4:
                     showAllWords();
                     break;
                 case 5:
+                    String lookUpWord = sc.nextLine();
                     // sửa hàm từ String thành void
-                    dictionaryLookup();
+                    dictionaryLookup(lookUpWord);
                     break;
                 case 6:
                     String wordSearch = sc.nextLine();
@@ -85,7 +91,7 @@ public class DictionaryCommandLine extends DictionaryManagement {
                     game();
                     break;
                 case 8:
-                    insertFromFile();
+                    insertFromFile("EnglishDictionary/resources/dictionaries.txt");
                     System.out.println("Import from file successful!");
                     break;
                 case 9:
@@ -99,7 +105,7 @@ public class DictionaryCommandLine extends DictionaryManagement {
 
     }
     public void dictionaryBasic() {
-        insertFromFile();
+        insertFromFile("EnglishDictionary/resources/dictionaries.txt");
         sortDictionary();
         //showAllWords();
     }

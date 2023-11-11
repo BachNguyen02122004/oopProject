@@ -1,5 +1,6 @@
 package DictionaryApp.app;
 
+import DictionaryCommand.Word;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,6 +29,7 @@ public class AddController extends SceneSwitch implements Initializable {
     @FXML
     Button submitButton;
 
+    private final String path = "EnglishDictionary/resources/dictionaries.txt";
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         submitButton.setDisable(true);
@@ -58,10 +60,13 @@ public class AddController extends SceneSwitch implements Initializable {
         confirm.setHeaderText("You're adding a word");
         confirm.setContentText("Are you sure?");
         if (confirm.showAndWait().get() == ButtonType.OK) {
+
             String newAddWord = newWord.getText().trim();
-            String newAddWordDef = "- " +  newWordDef.getText().trim();
-            wordToDefinitionMap.put(newAddWord, newAddWordDef);
-            saveWordsToFile();
+
+            String newAddWordDef = "- " + newWordDef.getText().trim();
+            dictionaryManagement.addWord(newAddWord, newAddWordDef);
+
+
         }
     }
 }

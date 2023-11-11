@@ -1,6 +1,8 @@
 package DictionaryApp.app;
 
+import DictionaryCommand.DictionaryManagement;
 import DictionaryCommand.Word;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -31,8 +33,12 @@ public class SearchController extends SceneSwitch implements Initializable {
     @FXML
     AnchorPane hello;
 
-    public static ObservableList<String> allWords;
-    public static Map<String, String> wordToDefinitionMap = new HashMap<>();
+    private final String path = "EnglishDictionary/resources/dictionaries.txt";
+
+//    public static ObservableList<String> allWords;
+//    public List<Word> wordToDefinitionMap = new ArrayList<>();
+
+    public static DictionaryManagement dictionaryManagement = new DictionaryManagement();
 
     @FXML
     private ImageView changeDef;
@@ -40,9 +46,13 @@ public class SearchController extends SceneSwitch implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         definitionListView.setEditable(false);
-        allWords = FXCollections.observableArrayList();
-        loadWordsFromFile("EnglishDictionary/resources/dictionaries.txt");
-        wordListView.setItems(allWords);
+//        allWords = FXCollections.observableArrayList();
+        if (dictionaryManagement.getAllWords().isEmpty()) {
+        dictionaryManagement.insertFromFile(path);
+        }
+//        wordToDefinitionMap = dictionaryManagement.getDictionaryWords();
+//        allWords = dictionaryManagement.getAllWords();
+        wordListView.setItems(dictionaryManagement.getAllWords());
         // edit color word_search
         wordListView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
@@ -85,69 +95,80 @@ public class SearchController extends SceneSwitch implements Initializable {
     @FXML
     private void handleSaveClick() {
         String selectedWord = wordListView.getSelectionModel().getSelectedItem(); // lấy từ được chọn
-        String updatedDefinition = definitionListView.getText(); // lấy dữ liệu người dùng nhập
+        String updatedDefinition = definitionListView.getText();
+        System.out.println(updatedDefinition);// lấy dữ liệu người dùng nhập
         definitionListView.setEditable(false);
 
         if (selectedWord != null) {
-            wordToDefinitionMap.put(selectedWord, updatedDefinition); // push từ chọn và sự thay đổi vào map
-            saveWordsToFile();
+            for (Word word : dictionaryManagement.getDictionaryWords()) {
+                if (word.getWord_target().equals(selectedWord)) {
+                    System.out.println(updatedDefinition);
+                    word.setWord_explain(updatedDefinition);// push từ chọn và sự thay đổi vào map
+                }
+            }
+//            for(Word x : dictionaryManagement.getDictionaryWords()){
+//                if(x.getWord_explain().equals(updatedDefinition))
+//                    System.out.println(x.getWord_target() + " " + x.getWord_explain());
+//            }
+            dictionaryManagement.exportToFile();
+
 
             CustomeToatify.showToast((Stage) searchTF.getScene().getWindow(), "Đã lưu thay đổi!");
         }
     }
 
     // render lại từ điển
-    public static void saveWordsToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("EnglishDictionary/resources/dictionaries.txt"))) {
-            for (Map.Entry<String, String> entry : wordToDefinitionMap.entrySet()) {
-                writer.write("|" + entry.getKey() + "\n");
-                writer.write(entry.getValue() + "\n\n");
-            }
-            Collections.sort(allWords);
-        } catch (IOException e) {
-            System.out.println("Có lỗi xảy ra");
-        }
-    }
+//    public static void saveWordsToFile() {
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter("EnglishDictionary/resources/dictionaries.txt"))) {
+//            for (Map.Entry<String, String> entry : wordToDefinitionMap.entrySet()) {
+//                writer.write("|" + entry.getKey() + "\n");
+//                writer.write(entry.getValue() + "\n\n");
+//            }
+//            Collections.sort(allWords);
+//        } catch (IOException e) {
+//            System.out.println("Có lỗi xảy ra");
+//        }
+//    }
 
-    public static void loadWordsFromFile(String filePath) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String word_target = "";
-            StringBuilder word_explain = new StringBuilder();
-            String wordLine;
-
-            while ((wordLine = reader.readLine()) != null) {
-                if (wordLine.startsWith("|")) {
-                    if (!word_target.isEmpty()) {
-                        Word newWord = new Word(word_target, word_explain.toString().trim());
-                        allWords.add(newWord.getWord_target());
-                        wordToDefinitionMap.put(newWord.getWord_target(), newWord.getWord_explain());
-                    }
-
-                    word_target = wordLine.replace("|", "").trim();
-                    word_explain = new StringBuilder();
-                } else {
-                    word_explain.append(wordLine).append("\n");
-                }
-            }
-
-            if (!word_target.isEmpty()) {
-                Word newWord = new Word(word_target, word_explain.toString().trim());
-                allWords.add(newWord.getWord_target());
-                wordToDefinitionMap.put(newWord.getWord_target(), newWord.getWord_explain());
-            }
-
-            Collections.sort(allWords);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public static void loadWordsFromFile(String filePath) {
+//        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+//            String word_target = "";
+//            StringBuilder word_explain = new StringBuilder();
+//            String wordLine;
+//
+//            while ((wordLine = reader.readLine()) != null) {
+//                if (wordLine.startsWith("|")) {
+//                    if (!word_target.isEmpty()) {
+//                        Word newWord = new Word(word_target, word_explain.toString().trim());
+//                        allWords.add(newWord.getWord_target());
+//                        wordToDefinitionMap.put(newWord.getWord_target(), newWord.getWord_explain());
+//                    }
+//
+//                    word_target = wordLine.replace("|", "").trim();
+//                    word_explain = new StringBuilder();
+//                } else {
+//                    word_explain.append(wordLine).append("\n");
+//                }
+//            }
+//
+//            if (!word_target.isEmpty()) {
+//                Word newWord = new Word(word_target, word_explain.toString().trim());
+//                allWords.add(newWord.getWord_target());
+//                wordToDefinitionMap.put(newWord.getWord_target(), newWord.getWord_explain());
+//            }
+//
+//            Collections.sort(allWords);
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     private void handleSearch(KeyEvent keyEvent) {
         String searchText = searchTF.getText().toLowerCase();
         List<String> filteredWords = new ArrayList<>();
-        for (String search : allWords) {
+        for (String search : dictionaryManagement.getAllWords()) {
             if (search.startsWith(searchText)) {
                 filteredWords.add(search);
             }
@@ -156,24 +177,41 @@ public class SearchController extends SceneSwitch implements Initializable {
     }
 
     private void showWordDefinition(String word) {
-        if (word != null && wordToDefinitionMap.containsKey(word)) {
-            String definition = wordToDefinitionMap.get(word);
-            definitionListView.setText(definition);
+        if (word != null) {
+            for (Word search : dictionaryManagement.getDictionaryWords()) {
+                if (search.getWord_target() != null && word.equals(search.getWord_target())) {
+                    String definition = search.getWord_explain();
+                    definitionListView.setText(definition);
+                }
+            }
         }
     }
 
     @FXML
     private void handleEraser(MouseEvent event) {
         String selectedWord = wordListView.getSelectionModel().getSelectedItem();
+        System.out.println(selectedWord);
         if (selectedWord != null) {
             Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
             confirm.setTitle("Remove");
             confirm.setHeaderText("You're deleting a word");
             confirm.setContentText("Are you sure?");
             if (confirm.showAndWait().get() == ButtonType.OK) {
-                wordToDefinitionMap.remove(selectedWord);
-                definitionListView.setText(null);
-                saveWordsToFile();
+                dictionaryManagement.removeWord(selectedWord);
+                ObservableList<String> wordList = wordListView.getItems();
+                int index = -1;
+                for (int i = 0; i < wordList.size(); i++) {
+                    if (wordList.get(i).equals(selectedWord)) {
+                        index = i;
+                        System.out.println(index);
+                        break;
+                    }
+                }
+                if (index != -1) {
+                    wordList.remove(index);
+                    wordListView.getSelectionModel().clearSelection();
+                    definitionListView.clear();
+                }
             }
         }
     }
