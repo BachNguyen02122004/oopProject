@@ -1,9 +1,9 @@
 package DictionaryApp.app;
 
-import DictionaryApp.model.SceneSwitch;
 import DictionaryCommand.Word;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -14,16 +14,14 @@ import javafx.util.Callback;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyEvent;
-import org.w3c.dom.Text;
 
-//import javax.swing.text.html.ImageView;
 import javafx.scene.image.ImageView;
 
 import java.io.*;
+import java.net.URL;
 import java.util.*;
-import java.util.stream.Collectors;
 
-public class SearchController {
+public class SearchController extends SceneSwitch implements Initializable {
     @FXML
     TextField searchTF;
     @FXML
@@ -40,7 +38,7 @@ public class SearchController {
     private ImageView changeDef;
 
     @FXML
-    public void initialize() {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         definitionListView.setEditable(false);
         allWords = FXCollections.observableArrayList();
         loadWordsFromFile("EnglishDictionary/resources/dictionaries.txt");
@@ -178,10 +176,5 @@ public class SearchController {
                 saveWordsToFile();
             }
         }
-    }
-
-    @FXML
-    private void addWordScene(MouseEvent event) throws IOException {
-        new SceneSwitch(hello, "./view/addWord.fxml");
     }
 }

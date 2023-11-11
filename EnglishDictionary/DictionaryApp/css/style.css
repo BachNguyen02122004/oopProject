@@ -61,6 +61,7 @@
     -fx-font-size : 14px;
     -fx-border-radius : 2;
     -fx-background-color :#63B8FF;
+    -fx-cursor: hand;
 }
 
 #paneHeader {
