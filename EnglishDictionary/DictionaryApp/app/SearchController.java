@@ -1,5 +1,6 @@
 package DictionaryApp.app;
 
+import DictionaryCommand.Dictionary;
 import DictionaryCommand.DictionaryManagement;
 import DictionaryCommand.Word;
 
@@ -40,6 +41,7 @@ public class SearchController extends SceneSwitch implements Initializable {
 
     public static DictionaryManagement dictionaryManagement = new DictionaryManagement();
 
+
     @FXML
     private ImageView changeDef;
 
@@ -48,10 +50,11 @@ public class SearchController extends SceneSwitch implements Initializable {
         definitionListView.setEditable(false);
 //        allWords = FXCollections.observableArrayList();
         if (dictionaryManagement.getAllWords().isEmpty()) {
-        dictionaryManagement.insertFromFile(path);
+            dictionaryManagement.insertFromFile(path);
         }
 //        wordToDefinitionMap = dictionaryManagement.getDictionaryWords();
 //        allWords = dictionaryManagement.getAllWords();
+        dictionaryManagement.updateTrie(dictionaryManagement.getDictionaryWords());
         wordListView.setItems(dictionaryManagement.getAllWords());
         // edit color word_search
         wordListView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
@@ -167,14 +170,20 @@ public class SearchController extends SceneSwitch implements Initializable {
 
     private void handleSearch(KeyEvent keyEvent) {
         String searchText = searchTF.getText().toLowerCase();
-        List<String> filteredWords = new ArrayList<>();
-        for (String search : dictionaryManagement.getAllWords()) {
-            if (search.startsWith(searchText)) {
-                filteredWords.add(search);
-            }
-        }
+      //  System.out.println(searchText);
+//        for(int i =0; i<10; i++){
+//            System.out.println(dictionaryManagement.getDictionaryWords().get(i).getWord_target());
+//        }
+
+        ObservableList<String> filteredWords = dictionaryManagement.searchWord(dictionaryManagement.getDictionaryWords(), searchText);
         wordListView.setItems(FXCollections.observableArrayList(filteredWords));
+        for(String x : filteredWords){
+            System.out.println(x);
+        }
     }
+
+
+
 
     private void showWordDefinition(String word) {
         if (word != null) {
@@ -190,29 +199,30 @@ public class SearchController extends SceneSwitch implements Initializable {
     @FXML
     private void handleEraser(MouseEvent event) {
         String selectedWord = wordListView.getSelectionModel().getSelectedItem();
-        System.out.println(selectedWord);
         if (selectedWord != null) {
             Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
             confirm.setTitle("Remove");
             confirm.setHeaderText("You're deleting a word");
             confirm.setContentText("Are you sure?");
-            if (confirm.showAndWait().get() == ButtonType.OK) {
-                dictionaryManagement.removeWord(selectedWord);
-                ObservableList<String> wordList = wordListView.getItems();
-                int index = -1;
-                for (int i = 0; i < wordList.size(); i++) {
-                    if (wordList.get(i).equals(selectedWord)) {
-                        index = i;
-                        System.out.println(index);
-                        break;
+
+                if (confirm.showAndWait().get() == ButtonType.OK) {
+                    dictionaryManagement.removeWord(selectedWord);
+                    ObservableList<String> wordList = wordListView.getItems();
+                    int index = wordList.indexOf(selectedWord);
+                    if (index != -1) {
+                        wordList.remove(index);
+                        wordListView.getSelectionModel().clearSelection();
+                        definitionListView.clear();
+                        
                     }
-                }
-                if (index != -1) {
-                    wordList.remove(index);
-                    wordListView.getSelectionModel().clearSelection();
-                    definitionListView.clear();
-                }
+            } else {
+                Alert notExplained = new Alert(Alert.AlertType.WARNING);
+                notExplained.setTitle("Word Not Explained");
+                notExplained.setHeaderText(null);
+                notExplained.setContentText("This word has not been explained yet.");
+                notExplained.showAndWait();
             }
         }
     }
+
 }

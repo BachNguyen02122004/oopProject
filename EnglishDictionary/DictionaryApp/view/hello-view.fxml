@@ -22,7 +22,7 @@
             <Image url="@../image/add.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="329.0" onMouseClicked="#translateScene" pickOnBounds="true" preserveRatio="true" styleClass="bar">
          <image>
             <Image url="@../image/translate.png" />
          </image>

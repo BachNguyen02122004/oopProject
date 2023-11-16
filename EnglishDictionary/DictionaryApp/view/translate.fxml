@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="container" fx:id="translate" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="844.0" style="-fx-background-color: #f2c2f3;;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.Translate">
+    <children>
+        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="127.0" onMouseClicked="#searchScene" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <image>
+                <Image url="@../image/loupe.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <image>
+                <Image url="@../image/add.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <image>
+                <Image url="@../image/translate.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="50.0" fitWidth="44.0" layoutX="14.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <image>
+                <Image url="@../image/open-book.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="69.0" fitWidth="65.0" layoutX="49.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <image>
+                <Image url="@../image/dictionary.png" />
+            </image>
+        </ImageView>
+        <AnchorPane layoutX="135.0" layoutY="154.0" prefHeight="277.0" prefWidth="730.0" styleClass="box-search" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="154.0">
+            <children>
+                <ComboBox layoutX="368.0" layoutY="34.0" prefWidth="150.0" promptText="Tiếng Việt" style="-fx-background-radius: 30px; -fx-text-fill: #FFFFFF;" styleClass="box-text" AnchorPane.leftAnchor="368.0" />
+                <ComboBox layoutX="75.0" layoutY="34.0" prefWidth="150.0" promptText="English" style="-fx-background-radius: 30px; -fx-text-fill: #FFFFFF;" styleClass="box-text" AnchorPane.rightAnchor="348.6" />
+            <TextField alignment="TOP_LEFT" layoutY="100.0" prefHeight="250.0" prefWidth="280.0" promptText="Nhập từ cần search vào đây..." styleClass="word-search" />
+            <TextField layoutX="281.0" layoutY="100.0" prefHeight="250.0" prefWidth="292.0" styleClass="word-explain" />
+            <ImageView fitHeight="44.0" fitWidth="52.0" layoutX="265.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/left-and-right.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+      <ImageView fitHeight="132.0" fitWidth="121.0" layoutX="354.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/bgr-translate.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

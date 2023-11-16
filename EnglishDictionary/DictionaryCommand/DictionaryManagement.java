@@ -1,6 +1,7 @@
 package DictionaryCommand;
 
-import DictionaryCommand.Word;
+
+import Tries.Trie;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -8,8 +9,8 @@ import java.io.*;
 import java.util.*;
 
 
-public class DictionaryManagement  {
-    private List<Word> dictionaryWords;
+public class DictionaryManagement extends Dictionary {
+    private Trie trie = new Trie();
 
     private ObservableList<String> allWords = FXCollections.observableArrayList();
 
@@ -21,13 +22,9 @@ public class DictionaryManagement  {
         return dictionaryWords;
     }
 
-    public void setDictionaryWords(List<Word> dictionaryWords) {
-        this.dictionaryWords = dictionaryWords;
-    }
 
     public DictionaryManagement() {
-
-        dictionaryWords = new ArrayList<>();
+        allWords = FXCollections.observableArrayList();
     }
 
     public void insertFromFile(String path) {
@@ -102,7 +99,7 @@ public class DictionaryManagement  {
         }
 //        if (!ok) {
 //            System.out.println("Không tìm thấy từ!!!");
-            return false;
+        return false;
 //        }
     }
 
@@ -183,6 +180,7 @@ public class DictionaryManagement  {
 //        Scanner sc = new Scanner(System.in);
 //        System.out.print("Nhập từ muốn xóa: ");
 //        String word_target = sc.nextLine();
+        trie = new Trie();
         int length = dictionaryWords.size();
         for (int i = 0; i < length; i++) {
             if (dictionaryWords.get(i).getWord_target().equals(word_target)) {
@@ -193,7 +191,7 @@ public class DictionaryManagement  {
             }
         }
         System.out.println("Xóa thành công");
-
+        updateTrie(dictionaryWords);
         exportToFile();
     }
 
@@ -214,12 +212,30 @@ public class DictionaryManagement  {
     }
 
     // hàm tìm kiếm từ hoặc cụm từ
-    public void dictionarySearch(String word_searching) {
+    public void dictionarySearch(List<Word> dicWord, String word_searching) {
         for (Word word : dictionaryWords) {
             if (word.getWord_target().startsWith(word_searching)) {
                 System.out.println(word.getWord_target());
             }
         }
+    }
+
+    // tìm kiếm word dùng trie
+    public ObservableList<String> searchWord(List<Word> dic, String key) {
+        ObservableList<String> listWord = FXCollections.observableArrayList();
+        try {
+            List<String> results = trie.autoComplete(key);
+            if (results != null) {
+
+                for (String x : results) {
+                    listWord.add(x);
+//                    System.out.println(results.get(i));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Something went wrong: " + e);
+        }
+        return listWord;
     }
 
     //game
@@ -276,4 +292,11 @@ public class DictionaryManagement  {
         }
     }
 
+    public void updateTrie(List<Word> dic) {
+        try {
+            for (Word word : dic) trie.insert(word.getWord_target());
+        } catch (NullPointerException e) {
+            System.out.println("Something went wrong: " + e);
+        }
+    }
 }

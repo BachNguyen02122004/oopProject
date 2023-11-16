@@ -37,7 +37,8 @@
                 <Image url="@../image/dictionary.png" />
             </image>
         </ImageView>
-      <TextArea fx:id="newWordDef" layoutX="144.0" layoutY="208.0" prefHeight="219.0" prefWidth="354.0" promptText="Nhập nghĩa vào đây... " />
+
+        <TextArea fx:id="newWordDef" layoutX="144.0" layoutY="208.0" prefHeight="219.0" prefWidth="354.0" promptText="Nhập nghĩa vào đây... " />
       <Label layoutX="144.0" layoutY="87.0" prefHeight="33.0" prefWidth="354.0" styleClass="target-word" text="Từ vựng">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">

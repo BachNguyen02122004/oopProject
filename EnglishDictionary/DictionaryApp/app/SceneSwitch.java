@@ -18,14 +18,19 @@ public class SceneSwitch {
     @FXML
     private AnchorPane addWord;
 
+    @FXML
+    private AnchorPane translate;
+
     public SceneSwitch() {
 
     }
 
 
     public SceneSwitch(AnchorPane currentAnchorPane, String fxml) throws IOException {
+        System.out.println(currentAnchorPane);
         AnchorPane nextAnchorPane =
                 FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource(fxml)));
+        System.out.println(nextAnchorPane.getId());
         currentAnchorPane.getChildren().removeAll();
         currentAnchorPane.getChildren().setAll(nextAnchorPane);
     }
@@ -38,5 +43,10 @@ public class SceneSwitch {
     @FXML
     public void searchScene(MouseEvent event) throws IOException {
         new SceneSwitch(addWord, "./view/hello-view.fxml");
+    }
+
+    @FXML
+    public void translateScene(MouseEvent event) throws IOException {
+        new SceneSwitch(hello, "./view/translate.fxml");
     }
 }

@@ -63,11 +63,11 @@ public class DictionaryCommandLine extends DictionaryManagement {
                 case 1:
                     String word_target = sc.nextLine();
                     String word_explain = sc.nextLine();
-                    addWord(word_target, word_explain);
+                    addWord( word_target, word_explain);
                     break;
                 case 2:
                     String word = sc.nextLine();
-                    removeWord(word);
+                    removeWord( word);
                     break;
                 case 3:
                     String update_target = sc.nextLine();
@@ -80,11 +80,11 @@ public class DictionaryCommandLine extends DictionaryManagement {
                 case 5:
                     String lookUpWord = sc.nextLine();
                     // sửa hàm từ String thành void
-                    dictionaryLookup(lookUpWord);
+                    dictionaryLookup( lookUpWord);
                     break;
                 case 6:
                     String wordSearch = sc.nextLine();
-                    dictionarySearch(wordSearch);
+                    dictionarySearch(dictionaryWords, wordSearch);
                     break;
                 case 7:
                     System.out.println("Play game!!!");
