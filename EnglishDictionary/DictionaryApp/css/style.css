@@ -78,7 +78,8 @@
     -fx-padding : 5px 0;
 }
 
-// translate
+
+/*Translate*/
 
 .word-translate {
     -fx-background-color : #fff;
@@ -89,19 +90,31 @@
     -fx-background-color : #63B8FF;
     -fx-border-radius : 5;
     -fx-background-radius : 5;
-
-
+    -fx-cursor: hand;
 }
 
 .word-search, .word-explain{
     -fx-border-style : solid;
     -fx-border-color : #966FBD;
     -fx-border-width : 2;
-    -fx-border-radius : 5;
     -fx-background-radius : 5;
+    -fx-wrap-text: true;
+}
+
+.word-search{
+    -fx-border-radius: 5 0 0 5 ;
+}
+
+.word-explain{
+    -fx-border-radius: 0 5 5 0 ;
 }
 
 .box-text {
     -fx-font-size : 14px;
     -fx-background-color : #CCF381;
+}
+
+.btn-translate{
+    -fx-background-color: #87e1e1;
+    -fx-cursor: hand;
 }

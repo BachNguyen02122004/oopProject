@@ -91,7 +91,9 @@ public class SearchController extends SceneSwitch implements Initializable {
 
     @FXML
     private void handlePencilClick() {
+
         definitionListView.setEditable(true);
+        CustomeToatify.showToast((Stage) searchTF.getScene().getWindow(), "Đang thay đổi");
     }
 
     // Bắt sự kiện người dùng nhập vào(Hàm update)
@@ -116,7 +118,7 @@ public class SearchController extends SceneSwitch implements Initializable {
             dictionaryManagement.exportToFile();
 
 
-            CustomeToatify.showToast((Stage) searchTF.getScene().getWindow(), "Đã lưu thay đổi!");
+            CustomeToatify.showToast((Stage) searchTF.getScene().getWindow(), "Đã lưu thay đổi");
         }
     }
 

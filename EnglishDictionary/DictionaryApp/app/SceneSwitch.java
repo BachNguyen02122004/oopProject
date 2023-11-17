@@ -49,4 +49,8 @@ public class SceneSwitch {
     public void translateScene(MouseEvent event) throws IOException {
         new SceneSwitch(hello, "./view/translate.fxml");
     }
+
+    public void searchScene2(MouseEvent event) throws IOException {
+        new SceneSwitch(translate, "./view/hello-view.fxml");
+    }
 }

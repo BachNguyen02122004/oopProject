@@ -1,8 +1,12 @@
 package DictionaryApp.app;
 
 import javafx.animation.FadeTransition;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -15,14 +19,16 @@ public class CustomeToatify {
         toastStage.initStyle(StageStyle.TRANSPARENT);
 
         Label text = new Label(message);
-        text.setStyle("-fx-background-color: rgba(0, 0, 0, 0.5); -fx-text-fill: white; -fx-padding: 10px;");
+        text.setStyle("-fx-text-fill: white;");
 
         StackPane root = new StackPane(text);
-        root.setStyle("-fx-background-radius: 5px; -fx-background-color: rgba(0, 0, 0, 0.5); -fx-padding: 20px;");
-        root.setOpacity(0);
+        root.setStyle("-fx-background-radius: 5px; -fx-background-color: rgba(9,158,222,0.87); -fx-padding: 20px; -fx-font-size: 17px");
+        root.setOpacity(0.6);
 
-        toastStage.setScene(new javafx.scene.Scene(root));
+        toastStage.setScene(new Scene(root));
         toastStage.getScene().setFill(null);
+//        toastStage.setX(844);
+//        toastStage.setY(569);
 
         toastStage.show();
 
@@ -34,7 +40,7 @@ public class CustomeToatify {
         FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(0.5), root);
         fadeOutTransition.setFromValue(1);
         fadeOutTransition.setToValue(0);
-        fadeOutTransition.setDelay(Duration.seconds(2));
+        fadeOutTransition.setDelay(Duration.seconds(1));
         fadeOutTransition.setOnFinished(e -> toastStage.close());
 
         fadeInTransition.setOnFinished(e -> fadeOutTransition.play());
