@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc9d2f13-74a4-4618-b765-3ec3ff780e79" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oopProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../oopProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/oopProject/DictionaryApp/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/oopProject/DictionaryApp/HelloApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/oopProject/DictionaryApp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/oopProject/DictionaryApp/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/oopProject/DictionaryApp/view/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/oopProject/DictionaryApp/view/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/oopProject/DictionaryCommand/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/oopProject/DictionaryCommand/Dictionary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/oopProject/DictionaryCommand/DictionaryCommandLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/oopProject/DictionaryCommand/DictionaryCommandLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/oopProject/DictionaryCommand/DictionaryManagement$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/oopProject/DictionaryCommand/DictionaryManagement$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/oopProject/DictionaryCommand/DictionaryManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/oopProject/DictionaryCommand/DictionaryManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/oopProject/resources/dictionaries.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/oopProject/resources/dictionaries.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/oopProject/resources/dictionariesCommandLine.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/oopProject/resources/dictionariesCommandLine.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/project_dictionary/oopProject",
+    "last_opened_file_path": "D:/project_dic/oopProject/EnglishDictionary",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

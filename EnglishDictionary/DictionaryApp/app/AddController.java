@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 import static DictionaryApp.app.SearchController.*;
 
-public class AddController extends SceneSwitch implements Initializable {
+public class AddController implements Initializable {
     @FXML
     AnchorPane addWord;
     @FXML

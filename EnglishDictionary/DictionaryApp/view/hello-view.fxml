@@ -1,61 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="container" fx:id="hello" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="844.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.SearchController">
+<AnchorPane id="container" fx:id="hello" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="786.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.SearchController">
    <children>
-      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-         <image>
-            <Image url="@../image/loupe.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="229.0" onMouseClicked="#addWordScene" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-         <image>
-            <Image url="@../image/add.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="329.0" onMouseClicked="#translateScene" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-         <image>
-            <Image url="@../image/translate.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="44.0" layoutX="14.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-         <image>
-            <Image url="@../image/open-book.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="69.0" fitWidth="65.0" layoutX="49.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-         <image>
-            <Image url="@../image/dictionary.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="searchTF" layoutX="230.0" layoutY="31.0" prefHeight="32.0" prefWidth="352.0" />
+
+      <TextField fx:id="searchTF" layoutX="217.0" layoutY="31.0" prefHeight="32.0" prefWidth="352.0" />
       <ImageView fx:id="searchBtn" fitHeight="22.0" fitWidth="20.0" layoutX="546.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/search.png" />
          </image>
       </ImageView>
-      <ListView fx:id="wordListView" layoutX="126.0" layoutY="127.0" prefHeight="358.0" prefWidth="188.0" />
-      <TextArea fx:id="definitionListView" layoutX="325.0" layoutY="127.0" prefHeight="358.0" prefWidth="482.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="76.0" prefHeight="42.0" prefWidth="188.0" styleClass="related-words" text="     Kết quả tìm kiếm">
+      <ListView fx:id="wordListView" layoutX="73.0" layoutY="133.0" prefHeight="358.0" prefWidth="188.0" />
+      <TextArea fx:id="definitionListView" layoutX="283.0" layoutY="133.0" prefHeight="358.0" prefWidth="482.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="73.0" layoutY="77.0" prefHeight="42.0" prefWidth="188.0" styleClass="related-words" text="     Kết quả tìm kiếm">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="32.0" fitWidth="20.0" layoutX="138.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="20.0" layoutX="94.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/seo.png" />
          </image>
       </ImageView>
-      <Label layoutX="326.0" layoutY="77.0" prefHeight="42.0" prefWidth="482.0" styleClass="translate-words" text="Nghĩa của từ">
+      <Label layoutX="283.0" layoutY="77.0" prefHeight="42.0" prefWidth="482.0" styleClass="translate-words" text="Nghĩa của từ">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
                <image>
@@ -67,7 +38,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Pane layoutX="591.0" layoutY="76.0" prefHeight="44.0" prefWidth="188.0">
+      <Pane layoutX="566.0" layoutY="75.0" prefHeight="44.0" prefWidth="188.0">
          <children>
             <ImageView fitHeight="32.0" fitWidth="54.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="bar">
                <image>

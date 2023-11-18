@@ -24,7 +24,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 
-public class SearchController extends SceneSwitch implements Initializable {
+public class SearchController implements Initializable {
     @FXML
     TextField searchTF;
     @FXML

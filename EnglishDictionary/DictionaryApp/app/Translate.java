@@ -19,7 +19,7 @@ import java.net.URLEncoder;
 
 import java.util.ResourceBundle;
 
-public class Translate extends SceneSwitch implements Initializable {
+public class Translate implements Initializable {
 
     @FXML
     private AnchorPane translate;
@@ -78,6 +78,8 @@ public class Translate extends SceneSwitch implements Initializable {
                 sourceLang = "en";
             } else if (sourceLangValue.equals("Vietnamese")) {
                 sourceLang = "vi";
+            } else if (sourceLangValue.equals("Chinese")) {
+                sourceLang = "zh";
             } else {
                 sourceLang = "ja";
             }
@@ -86,6 +88,8 @@ public class Translate extends SceneSwitch implements Initializable {
                 targetLang = "en";
             } else if (targetLangValue.equals("Vietnamese")) {
                 targetLang = "vi";
+            } else if (targetLangValue.equals("Chinese")) {
+                targetLang = "zh";
             } else {
                 targetLang = "ja";
             }

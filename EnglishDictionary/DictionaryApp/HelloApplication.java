@@ -10,9 +10,9 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("./view/hello-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("./view/home.fxml"));
         primaryStage.setTitle("Mân đàn");
-        primaryStage.setScene(new Scene(root, 844.0, 569.0));
+        primaryStage.setScene(new Scene(root, 900, 569.0));
         primaryStage.show();
     }
 
