@@ -61,7 +61,7 @@ public class AddController implements Initializable {
         confirm.setContentText("Are you sure?");
         if (confirm.showAndWait().get() == ButtonType.OK) {
 
-            String newAddWord = newWord.getText().trim();
+            String newAddWord = newWord.getText().toLowerCase().trim();
 
             String newAddWordDef = "- " + newWordDef.getText().trim();
             dictionaryManagement.addWord(newAddWord, newAddWordDef);

@@ -46,6 +46,9 @@ public class SearchController implements Initializable {
     private ImageView changeDef;
 
     @FXML
+    private ImageView loudSpeaker;
+
+    @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         definitionListView.setEditable(false);
 //        allWords = FXCollections.observableArrayList();
@@ -85,15 +88,27 @@ public class SearchController implements Initializable {
         });
         searchTF.setOnKeyReleased(this::handleSearch);
 
-        // Bắt sự kiện click cho ImageView
         changeDef.setOnMouseClicked(event -> handlePencilClick());
+
+        loudSpeaker.setOnMouseClicked(event -> handleLoudSpeaker());
     }
 
+    // Bắt sự kiện sửa
     @FXML
     private void handlePencilClick() {
 
         definitionListView.setEditable(true);
         CustomeToatify.showToast((Stage) searchTF.getScene().getWindow(), "Đang thay đổi");
+    }
+
+    // Bắt sự kiện phát âm
+    @FXML
+    private void handleLoudSpeaker(){
+        String selectedWord = wordListView.getSelectionModel().getSelectedItem();
+
+        if(selectedWord != null){
+            TextToSpeech.speakText(selectedWord);
+        }
     }
 
     // Bắt sự kiện người dùng nhập vào(Hàm update)
@@ -180,7 +195,7 @@ public class SearchController implements Initializable {
         ObservableList<String> filteredWords = dictionaryManagement.searchWord(dictionaryManagement.getDictionaryWords(), searchText);
         wordListView.setItems(FXCollections.observableArrayList(filteredWords));
         for(String x : filteredWords){
-            System.out.println(x);
+//            System.out.println(x);
         }
     }
 
