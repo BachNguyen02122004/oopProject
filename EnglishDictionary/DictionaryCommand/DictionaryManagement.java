@@ -211,7 +211,7 @@ public class DictionaryManagement extends Dictionary {
         }
     }
 
-    // hàm tìm kiếm từ hoặc cụm từ
+    // hàm tìm kiếm từ hoặc cụm từ trong command line
     public void dictionarySearch(List<Word> dicWord, String word_searching) {
         for (Word word : dictionaryWords) {
             if (word.getWord_target().startsWith(word_searching)) {
@@ -224,7 +224,7 @@ public class DictionaryManagement extends Dictionary {
     public ObservableList<String> searchWord(List<Word> dic, String key) {
         ObservableList<String> listWord = FXCollections.observableArrayList();
         try {
-            List<String> results = trie.autoComplete(key);
+            List<String> results = trie.searchWithWord(key);
             if (results != null) {
 
                 for (String x : results) {
@@ -293,10 +293,6 @@ public class DictionaryManagement extends Dictionary {
     }
 
     public void updateTrie(List<Word> dic) {
-        try {
-            for (Word word : dic) trie.insert(word.getWord_target());
-        } catch (NullPointerException e) {
-            System.out.println("Something went wrong: " + e);
-        }
+        for (Word word : dic) trie.insert(word.getWord_target(), word.getWord_explain());
     }
 }
