@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="680.0" prefWidth="1300" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.GameController">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1300" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/ai-la-trieu-phu-600.jpg" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="questionField" layoutX="337.0" layoutY="160.0" prefHeight="94.0" prefWidth="626.0" />
+      <TextField fx:id="choiceA" layoutX="337.0" layoutY="379.0" prefHeight="78.0" prefWidth="274.0" />
+      <TextField fx:id="choiceB" layoutX="688.0" layoutY="379.0" prefHeight="78.0" prefWidth="274.0" />
+      <TextField fx:id="choiceC" layoutX="337.0" layoutY="517.0" prefHeight="78.0" prefWidth="274.0" />
+      <TextField fx:id="choiceD" layoutX="688.0" layoutY="517.0" prefHeight="78.0" prefWidth="274.0" />
+      <ListView fx:id="prize" layoutX="1072.0" layoutY="63.0" prefHeight="535.0" prefWidth="200.0" />
+      <Button layoutX="65.0" layoutY="255.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="78.0" styleClass="btn-5050" textFill="#8c3939">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </Button>
+      <Button layoutX="65.0" layoutY="354.0" mnemonicParsing="false" styleClass="btn-alo">
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/alo-old.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="65.0" layoutY="457.0" mnemonicParsing="false" styleClass="btn-changeQues" />
+      <Button layoutX="45.0" layoutY="548.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="117.0" styleClass="btn-audiences" />
+      <ImageView fitHeight="58.0" fitWidth="72.0" layoutX="73.0" layoutY="567.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/khangia.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="56.0" fitWidth="103.0" layoutX="69.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/5050-old.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="71.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/dau-hoi-cham-4.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="testBtn" layoutX="182.0" layoutY="135.0" mnemonicParsing="false" text="Button" />
+   </children>
+</AnchorPane>

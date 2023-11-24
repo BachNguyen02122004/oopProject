@@ -118,3 +118,26 @@
     -fx-background-color: #87e1e1;
     -fx-cursor: hand;
 }
+
+/*game*/
+.btn-5050,.btn-alo,.btn-changeQues,.btn-audiences{
+    -fx-background-color: transparent;
+}
+
+#prize{
+    -fx-font-size: 17;
+    -fx-padding: 9;
+    -fx-text-alignment: center;
+    -fx-background-radius: 5;
+}
+
+.active{
+    -fx-background-color: red;
+}
+
+#questionField{
+    -fx-font-size: 20;
+    -fx-background-color: #6868fd;
+    -fx-text-fill: black;
+    -fx-wrap-text: true;
+}
