@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,15 +15,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-public class GameController implements Initializable {
+public class GameController extends FamousPeople implements Initializable {
     @FXML
     private ListView<String> prize; // Sử dụng ListView<String>
 
     private ObservableList<String> prizeList = FXCollections.observableArrayList();
 
     @FXML
-    private Button testBtn;
+    private Button callAPs;
 
+    @FXML
+    private Button audiencesBtn;
     @FXML
     private TextArea questionField;
 
@@ -37,7 +40,7 @@ public class GameController implements Initializable {
 
     public String key;
 
-    private int activeIndex = -1; // -1 nghĩa là không có phần tử nào được chọn ban đầu
+    private int activeIndex;//  nghĩa là không có phần tử nào được chọn ban đầu
 
     private ArrayList<ArrayList<String>> questions = new ArrayList<>();
 
@@ -51,6 +54,7 @@ public class GameController implements Initializable {
                 "12. 40.000.000", "13. 60.000.000", "14. 85.000.000", "15. 150.000.000"
         );
         Collections.reverse(prizeList);
+        activeIndex = prizeList.size() - 1;
     }
 
     @Override
@@ -88,17 +92,6 @@ public class GameController implements Initializable {
 
         });
 
-        testBtn.setOnAction(actionEvent -> {
-            if (!prizeList.isEmpty()) {
-                // Cập nhật activeIndex
-                activeIndex++;
-                if (activeIndex >= prizeList.size()) {
-                    activeIndex = 0;
-                }
-                // Làm mới ListView để áp dụng thay đổi
-                prize.refresh();
-            }
-        });
 
         choiceA.setOnMouseClicked(event -> {
             System.out.println("A");
@@ -161,6 +154,15 @@ public class GameController implements Initializable {
                 CustomeToatify.showToast((Stage) questionField.getScene().getWindow(), "Bạn đã thua vui lòng khởi động lại trò chơi");
 
             } else {
+                if (!prizeList.isEmpty()) {
+                    // Cập nhật activeIndex
+                    activeIndex--;
+                    if (activeIndex <= 0) {
+                        activeIndex = 0;
+                    }
+                    // Làm mới ListView để áp dụng thay đổi
+                    prize.refresh();
+                }
                 setQuestion();
             }
         }
@@ -184,4 +186,61 @@ public class GameController implements Initializable {
 //        }
     }
 
+    public void handleClickCall() {
+
+        System.out.println("Click thành công");
+        CustomeToatify.showToast((Stage) questionField.getScene().getWindow(), getFamousPs() + " đã chọn phương án: " + key);
+        callAPs.setDisable(true);
+
+
+        callAPs.setPickOnBounds(false);
+    }
+
+
+    public void ConsultingHandler() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Tổ tư vấn tại chỗ");
+        alert.setHeaderText("Kết quả của khán giả lựa chọn:");
+
+        String[] optionLabels = {"Đáp án A: ", "Đáp án B: ", "Đáp án C: ", "Đáp án D: "};
+        String[] checkKey = {"A", "B", "C", "D"};
+        int[] optionPercentages = {0, 0, 0, 0};
+
+        Random random = new Random();
+        int index = 0;
+        for (String x : checkKey) {
+            if (x.equals(key)) {
+                break;
+            }
+            index++;
+        }
+        // tìm vị trí đa đúng
+        int correctOptionIndex = index;
+        System.out.println(correctOptionIndex);
+
+        int totalPercent = 100;
+        int highestPercent = random.nextInt(51) + 50; // Cho đa đúng  lớn hơn 50%
+        optionPercentages[correctOptionIndex] = highestPercent;
+
+        for (int i = 0; i < 4; i++) {
+            if (i != correctOptionIndex) {
+                optionPercentages[i] = random.nextInt(totalPercent - highestPercent); // Phần trăm cho các đáp án khác
+                totalPercent -= optionPercentages[i];
+            }
+        }
+
+        StringBuilder contentText = new StringBuilder();
+        for (int i = 0; i < 4; i++) {
+            contentText.append(optionLabels[i])
+                    .append(" (").append(optionPercentages[i]).append("%)").append("\n");
+        }
+
+        alert.setContentText(contentText.toString());
+
+        // show alert
+        alert.showAndWait();
+
+        audiencesBtn.setDisable(true);
+
+    }
 }
