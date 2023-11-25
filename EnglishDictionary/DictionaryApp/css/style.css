@@ -159,3 +159,22 @@
 .helpOpacity{
     -fx-opacity: 0.6;
 }
+
+.price-item {
+    -fx-background-color : #4c4cf8;
+    -fx-border : 0;
+    -fx-border-radius : 5;
+    -fx-text-fill : #fff;
+}
+
+/*game over*/
+
+.again-btn, .quit-btn {
+    -fx-padding : 10;
+    -fx-background-color : #63B8FF;
+    -fx-border : 0;
+    -fx-border-radius : 5;
+    -fx-text-fill : #fff;
+    -fx-cursor : hand;
+}
+
