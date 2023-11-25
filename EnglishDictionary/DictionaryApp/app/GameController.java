@@ -5,13 +5,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import javax.swing.text.html.ImageView;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 
@@ -45,6 +45,19 @@ public class GameController extends FamousPeople implements Initializable {
     private ArrayList<ArrayList<String>> questions = new ArrayList<>();
 
     public boolean isGameOver = false;
+
+    @FXML
+    private ImageView halfHelp;
+
+    @FXML
+    private ImageView changeQuestionHelp;
+
+    private boolean halfHelpUsed = false; // Biến này kiểm tra xem halfHelp đã được sử dụng hay chưa
+
+
+    private boolean ChangeQuestionHelpUsed = false; // Biến này kiểm tra xem ChangeQuestionHelpUsed đã được sử dụng hay chưa
+
+    private Set<Integer> usedQuestions = new HashSet<>(); // Tập hợp này lưu trữ các chỉ số của câu hỏi đã được sử dụng
 
     public void addPrize() {
         prizeList.addAll(
@@ -94,24 +107,30 @@ public class GameController extends FamousPeople implements Initializable {
 
 
         choiceA.setOnMouseClicked(event -> {
-            System.out.println("A");
-            update(choiceA);
+            if (showConfirm()) {
+                update(choiceA);
+            }
         });
         choiceB.setOnMouseClicked(event -> {
-            System.out.println("B");
-
-            update(choiceB);
+            if (showConfirm()) {
+                update(choiceB);
+            }
         });
         choiceC.setOnMouseClicked(event -> {
-            System.out.println("C");
-
-            update(choiceC);
+            if (showConfirm()) {
+                update(choiceC);
+            }
         });
         choiceD.setOnMouseClicked(event -> {
-            System.out.println("D");
-
-            update(choiceD);
+            if (showConfirm()) {
+                update(choiceD);
+            }
         });
+
+
+        halfHelp.setOnMouseClicked(event -> useHalfHelp());
+
+        changeQuestionHelp.setOnMouseClicked(event -> useChangeQuestionHelp());
     }
 
     public void insertQuestion(String path) {
@@ -147,13 +166,41 @@ public class GameController extends FamousPeople implements Initializable {
         }
     }
 
+    // Phương thức để hiển thị hộp thoại xác nhận
+    private boolean showConfirm() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Xác Nhận");
+        alert.setHeaderText(null);
+        alert.setContentText("Bạn có chắc chắn chọn đáp án này không?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == ButtonType.OK;
+    }
+
+    // Hàm thêm âm thanh
+    private void playSound(String resourcePath) {
+        String musicFile = resourcePath;
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(mediaPlayer.getStatus());
+        mediaPlayer.play();
+
+    }
+
     public void update(TextField choice) {
         if (!isGameOver) {
             if (!choice.getText().substring(0, 1).equals(key)) {
                 isGameOver = true;
+                playSound("D:/oopProject/EnglishDictionary/DictionaryApp/media/traloisai.mp3");
                 CustomeToatify.showToast((Stage) questionField.getScene().getWindow(), "Bạn đã thua vui lòng khởi động lại trò chơi");
 
             } else {
+                playSound("D:/oopProject/EnglishDictionary/DictionaryApp/media/traloidung.mp3");
                 if (!prizeList.isEmpty()) {
                     // Cập nhật activeIndex
                     activeIndex--;
@@ -168,22 +215,81 @@ public class GameController extends FamousPeople implements Initializable {
         }
     }
 
+    public void changeQuestion(){
+        Random rand = new Random();
+        int randomNumber;
+        do {
+            randomNumber = rand.nextInt(questions.size());
+        } while (usedQuestions.contains(randomNumber)); // Lặp cho đến khi tìm thấy một câu hỏi chưa được sử dụng
+
+        setQuestion(randomNumber); // Sử dụng câu hỏi mới
+    }
+
+    public void setQuestion(int questionIndex) {
+        // Thêm chỉ số của câu hỏi vào tập hợp các câu hỏi đã sử dụng
+        usedQuestions.add(questionIndex);
+
+        ArrayList<String> selectedQuestion = questions.get(questionIndex);
+        questionField.setText(selectedQuestion.get(0));
+        choiceA.setText(selectedQuestion.get(1));
+        choiceB.setText(selectedQuestion.get(2));
+        choiceC.setText(selectedQuestion.get(3));
+        choiceD.setText(selectedQuestion.get(4));
+        key = selectedQuestion.get(5);
+
+        resetChoices();
+    }
+
+    // Cập nhật phương thức setQuestion ban đầu để sử dụng setQuestion mới với chỉ số ngẫu nhiên
     public void setQuestion() {
         Random rand = new Random();
-        int maxRand = questions.size();
-        int randomNumber = rand.nextInt(maxRand);
-        questionField.setText(questions.get(randomNumber).get(0));
-        choiceA.setText(questions.get(randomNumber).get(1));
-        choiceB.setText(questions.get(randomNumber).get(2));
-        choiceC.setText(questions.get(randomNumber).get(3));
-        choiceD.setText(questions.get(randomNumber).get(4));
-        key = questions.get(randomNumber).get(5);
-        questions.remove(randomNumber);
-//        for (ArrayList<String> q : questions) {
-//            for (String a : q) {
-//                System.out.println(a);
-//            }
-//        }
+        int randomNumber = rand.nextInt(questions.size());
+        setQuestion(randomNumber);
+    }
+
+    public void resetChoices() {
+        // Làm cho tất cả các lựa chọn trở nên hiển thị trở lại
+        choiceA.setVisible(true);
+        choiceB.setVisible(true);
+        choiceC.setVisible(true);
+        choiceD.setVisible(true);
+    }
+
+    public void removeHalfQuestion() {
+        List<TextField> choices = Arrays.asList(choiceA, choiceB, choiceC, choiceD);
+        Collections.shuffle(choices); // Trộn ngẫu nhiên thứ tự để loại bỏ trở nên ngẫu nhiên
+
+        TextField correctChoice = null;
+        for (TextField choice : choices) {
+            if (choice.getText().substring(0, 1).equals(key)) {
+                correctChoice = choice;
+                break;
+            }
+        }
+
+        int removedChoices = 0;
+        for (TextField choice : choices) {
+            if (choice != correctChoice && removedChoices < 2) {
+                choice.setVisible(false);
+                removedChoices++;
+            }
+        }
+    }
+
+    public void useHalfHelp() {
+        if (!halfHelpUsed) {
+            removeHalfQuestion();
+            halfHelpUsed = true; // Đánh dấu rằng halfHelp đã được sử dụng
+            halfHelp.getStyleClass().add("helpOpacity");
+        }
+    }
+
+    public void useChangeQuestionHelp(){
+        if(!ChangeQuestionHelpUsed){
+            changeQuestion();
+            ChangeQuestionHelpUsed = true; // Đánh dấu rằng đã được sử dụng
+            changeQuestionHelp.getStyleClass().add("helpOpacity");
+        }
     }
 
     public void handleClickCall() {

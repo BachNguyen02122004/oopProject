@@ -133,11 +133,29 @@
 
 .active{
     -fx-background-color: red;
+    -fx-text-fill: #fff;
 }
 
 #questionField{
     -fx-font-size: 20;
-    -fx-background-color: #6868fd;
-    -fx-text-fill: black;
+    -fx-text-fill: #fff;
     -fx-wrap-text: true;
+    -fx-control-inner-background: #4c4cf8;
+    -fx-highlight-fill: transparent;
+    -fx-highlight-text-fill: #fff;
+}
+
+#choiceA,#choiceB,#choiceC,#choiceD{
+    -fx-cursor: hand;
+    -fx-highlight-fill: transparent;
+    -fx-highlight-text-fill: black;
+}
+
+#choiceA:focused, #choiceB:focused, #choiceC:focused, #choiceD:focused {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+}
+
+.helpOpacity{
+    -fx-opacity: 0.6;
 }
