@@ -207,7 +207,7 @@
             Media sound = new Media(new File(musicFile).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
             try {
-                Thread.sleep(3000);
+                Thread.sleep(1500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -221,7 +221,7 @@
             if (!isGameOver) {
                 if (!choice.getText().substring(0, 1).equals(key)) {
                     isGameOver = true;
-                    playSound("D:/oopProject/EnglishDictionary/DictionaryApp/media/traloisai.mp3");
+                    playSound("EnglishDictionary/DictionaryApp/media/traloisai.mp3");
                     // Show game over screen
                   gameStatus("../view/gameOver.fxml");
                 } else {
@@ -237,12 +237,12 @@
                         if (activeIndex < 0) {
                             activeIndex = 0;
                             win = true;
-                            playSound("D:/oopProject/EnglishDictionary/DictionaryApp/media/horeo.mp3");
+                            playSound("EnglishDictionary/DictionaryApp/media/horeo.mp3");
                             // Show game over screen with win state
                             gameStatus("../view/winGame.fxml");
                         }
                         if(win == false) {
-                            playSound("D:/oopProject/EnglishDictionary/DictionaryApp/media/traloidung.mp3");
+                            playSound("EnglishDictionary/DictionaryApp/media/traloidung.mp3");
                         }
                         prize.refresh();
                     }

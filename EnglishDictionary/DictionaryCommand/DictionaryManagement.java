@@ -103,22 +103,9 @@ public class DictionaryManagement extends Dictionary {
 //        }
     }
 
-    // thêm từ vào file.txt
-//    public void addWord(String word_target, String word_explain) {
-//
-//        Word newWord = new Word(word_target, word_explain);
-//        dictionaryWords.add(newWord);
-//        sortDictionary();
-//        exportToFile();
-//    }
 
     // Thêm từ vào file.txt bằng dòng lệnh
     public void addWord(String word_target, String word_explain) {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Nhập từ tiếng Anh: ");
-//        String word_target = sc.nextLine();
-//        System.out.print("Nhập nghĩa tiếng Việt: ");
-//        String word_explain = sc.nextLine();
         Word newWord = new Word(word_target, word_explain);
         allWords.add(word_target);
         dictionaryWords.add(newWord);
@@ -130,9 +117,6 @@ public class DictionaryManagement extends Dictionary {
 
     // Sửa từ bằng dòng lệnh
     public void updateWord(String word_target, String word_explain) {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Từ tiếng Anh muốn sửa: ");
-
         int index = -1; // Lưu vị trí từ muốn sửa
 
         // Tìm từ người dùng nhập vào
@@ -145,27 +129,9 @@ public class DictionaryManagement extends Dictionary {
 
         // Nếu tìm thấy từ muốn sửa trong danh sách
         if (index != -1) {
-//            System.out.println("Bạn muốn sửa gì?");
-//            System.out.println("Nhập số 1: Sửa từ tiếng Anh");
-//            System.out.println("Nhập số 2: Sửa nghĩa tiếng Việt");
-//            int choice = sc.nextInt();
-//            sc.nextLine();  // Tránh trôi lệnh
-
-//            switch (choice) {
-////                case 1:
-//                    System.out.print("Nhập từ tiếng Anh mới: ");
-//                    String new_word_target = sc.nextLine();
-//                    dictionaryWords.get(index).setWord_target(new_word_target);
-//                    break;
-//                case 2:
             System.out.print("Nhập nghĩa tiếng Việt mới: ");
 
             dictionaryWords.get(index).setWord_explain(word_explain);
-//                    break;
-//                default:
-//                    System.out.println("Lựa chọn không hợp lệ. Vui lòng nhập lại!");
-//                    return;
-//            }
 
             System.out.println("Sửa từ thành công");
             sortDictionary();
@@ -177,9 +143,6 @@ public class DictionaryManagement extends Dictionary {
 
     // hàm xóa từ bằng dòng lệnh
     public void removeWord(String word_target) {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Nhập từ muốn xóa: ");
-//        String word_target = sc.nextLine();
         trie = new Trie();
         int length = dictionaryWords.size();
         for (int i = 0; i < length; i++) {

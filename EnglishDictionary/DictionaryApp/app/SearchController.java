@@ -36,8 +36,6 @@ public class SearchController implements Initializable {
 
     private final String path = "EnglishDictionary/resources/dictionaries.txt";
 
-//    public static ObservableList<String> allWords;
-//    public List<Word> wordToDefinitionMap = new ArrayList<>();
 
     public static DictionaryManagement dictionaryManagement = new DictionaryManagement();
 
@@ -51,12 +49,9 @@ public class SearchController implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         definitionListView.setEditable(false);
-//        allWords = FXCollections.observableArrayList();
         if (dictionaryManagement.getAllWords().isEmpty()) {
             dictionaryManagement.insertFromFile(path);
         }
-//        wordToDefinitionMap = dictionaryManagement.getDictionaryWords();
-//        allWords = dictionaryManagement.getAllWords();
         dictionaryManagement.updateTrie(dictionaryManagement.getDictionaryWords());
         wordListView.setItems(dictionaryManagement.getAllWords());
         // edit color word_search
@@ -126,10 +121,6 @@ public class SearchController implements Initializable {
                     word.setWord_explain(updatedDefinition);// push từ chọn và sự thay đổi vào map
                 }
             }
-//            for(Word x : dictionaryManagement.getDictionaryWords()){
-//                if(x.getWord_explain().equals(updatedDefinition))
-//                    System.out.println(x.getWord_target() + " " + x.getWord_explain());
-//            }
             dictionaryManagement.exportToFile();
 
 
@@ -137,66 +128,12 @@ public class SearchController implements Initializable {
         }
     }
 
-    // render lại từ điển
-//    public static void saveWordsToFile() {
-//        try (BufferedWriter writer = new BufferedWriter(new FileWriter("EnglishDictionary/resources/dictionaries.txt"))) {
-//            for (Map.Entry<String, String> entry : wordToDefinitionMap.entrySet()) {
-//                writer.write("|" + entry.getKey() + "\n");
-//                writer.write(entry.getValue() + "\n\n");
-//            }
-//            Collections.sort(allWords);
-//        } catch (IOException e) {
-//            System.out.println("Có lỗi xảy ra");
-//        }
-//    }
-
-//    public static void loadWordsFromFile(String filePath) {
-//        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-//            String word_target = "";
-//            StringBuilder word_explain = new StringBuilder();
-//            String wordLine;
-//
-//            while ((wordLine = reader.readLine()) != null) {
-//                if (wordLine.startsWith("|")) {
-//                    if (!word_target.isEmpty()) {
-//                        Word newWord = new Word(word_target, word_explain.toString().trim());
-//                        allWords.add(newWord.getWord_target());
-//                        wordToDefinitionMap.put(newWord.getWord_target(), newWord.getWord_explain());
-//                    }
-//
-//                    word_target = wordLine.replace("|", "").trim();
-//                    word_explain = new StringBuilder();
-//                } else {
-//                    word_explain.append(wordLine).append("\n");
-//                }
-//            }
-//
-//            if (!word_target.isEmpty()) {
-//                Word newWord = new Word(word_target, word_explain.toString().trim());
-//                allWords.add(newWord.getWord_target());
-//                wordToDefinitionMap.put(newWord.getWord_target(), newWord.getWord_explain());
-//            }
-//
-//            Collections.sort(allWords);
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     private void handleSearch(KeyEvent keyEvent) {
         String searchText = searchTF.getText().toLowerCase();
-      //  System.out.println(searchText);
-//        for(int i =0; i<10; i++){
-//            System.out.println(dictionaryManagement.getDictionaryWords().get(i).getWord_target());
-//        }
 
         ObservableList<String> filteredWords = dictionaryManagement.searchWord(dictionaryManagement.getDictionaryWords(), searchText);
         wordListView.setItems(FXCollections.observableArrayList(filteredWords));
-        for(String x : filteredWords){
-//            System.out.println(x);
-        }
     }
 
 
