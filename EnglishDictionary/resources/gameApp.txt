@@ -16,54 +16,6 @@ B. am buying
 C. going to buy
 D. bought
 B
-I ____ a car next year.
-A. buy
-B. am buying
-C. going to buy
-D. bought
-B
-I ____ a car next year.
-A. buy
-B. am buying
-C. going to buy
-D. bought
-B
-I ____ a car next year.
-A. buy
-B. am buying
-C. going to buy
-D. bought
-B
-I ____ a car next year.
-A. buy
-B. am buying
-C. going to buy
-D. bought
-B
-I ____ a car next year.
-A. buy
-B. am buying
-C. going to buy
-D. bought
-B
-I ____ a car next year.
-A. buy
-B. am buying
-C. going to buy
-D. bought
-B
-I ____ a car next year.
-A. buy
-B. am buying
-C. going to buy
-D. bought
-B
-I ____ a car next year.
-A. buy
-B. am buying
-C. going to buy
-D. bought
-B
 They are all ________ ready for the party.
 A. getting
 B. going
@@ -112,5 +64,542 @@ B. is working
 C. works
 D. will work
 A
+Dan can _____ the drum very well.
+A. play	
+B. do	
+C. make	
+D. think
+A
+My friend is ______ so she has a lot of free time.
+A. singer	
+B. married	
+C. single	
+D. free
+C
+I know somebody ________ can play the guitar.
+A. he	
+B. who	
+C. what	
+D. that he
+B
+Did you ask your father ________ some money?
+A. 0	
+B. after	
+C. on	
+D. for
+D
+You look ________ in red!
+A. most nicely	
+B. too nice	
+C. nicely	
+D. very nice
+D
+We know their address, but they don’t know ________.
+A. ours	
+B. their’s	
+C. our’s	
+D. our
+A
+Can you use ________ computer?
+A. a	
+B. one	
+C. two	
+D. an
+A
+Under no circumstances ________ or exchanged.
+A.  good will be returned	
+B. goods should be returned	
+C. can good be returned	
+D.  are goods being returned
+C
+Frank ________ when he noticed a large packing case lying on the floor
+A. has about to leave	
+B. had about to leave	
+C. is about to leave	
+D. was about to leave
+D
+He ________ newspapers for ten years.
+A. is selling	
+B. sells	
+C. has been selling	
+D. has been sold
+C
+This luggage is quite similar to ________.
+A. that one	
+B. those	
+C. in additional	
+D.  that
+A
+The doctor showed the new nurse ________ to do.
+A. what	
+B. that	
+C. how	
+D. as
+A
+Frede came to the meeting but Charles ________.
+A. isn’t	
+B. hasn’t	
+C. didn’t	
+D. wasn’t
+C
+What does he ________ for a living?
+A. make	
+B. does	
+C. do	
+D. makes
+C
+The murderer was ________ yesterday.
+A. hanging	
+B. hung	
+C. hanged	
+D. hang
+B
+Don’t let your brothers ________ the present.
+A. to see	
+B. seeing	
+C. seen	
+D.see
+D
+No, thank you, I don’t ________ sugar in tea.
+A. take	
+B. put	
+C. eat	
+D. drink
+B
+My cousin ________ bank manager.
+A. is a	
+B. makes	
+C. is	
+D. he is
+A
+She’s talking to you. Please listen to ________.
+A. she	
+B. hers	
+C. her	
+D. him
+C
+Handsome
+A. Đẹp trai
+B. Xinh gái
+C. Hài hước
+D. May mắn
+A
+Mountain
+A. Sông
+B. Núi
+C. Mặt trời
+D. Mặt trăng
+B
+Agriculture
+A.Thương nghiệp
+B.Công nghiệp
+C.Lâm nghiệp
+D.Nông nghiệp
+D
+Telephone
+A.Điện thoại
+B.Ti vi
+C.Máy tính
+D.Đồng hồ
+A
+Snail
+A.Sóc
+B.Hổ
+C.Ốc sên
+D.Bồ câu
+C
+Leopard
+A.Sư tử
+B.Báo
+C.Rắn
+D.Giun
+B
+Binary
+A.Nhị phân
+B.Thập phân
+C.Phân số
+D.Bát phân
+A
+Barbershop
+A.Quán cơm
+B.Quán tạp hóa
+C.Quán cắt tóc
+D.Quán nước
+C
+Button
+A.Cái khóa
+B.Cái chốt
+C.Cái móc
+D.Cái nút
+D
+Break
+A.Phá vỡ
+B.Gắn liền
+C.Bảo quản
+D.Làm đẹp
+A
+Table
+A.Cái ghế
+B.Cái quạt
+C.Cái bàn
+D.Cái bảng
+C
+Watch
+A.Đồng hồ đeo tay
+B.Đồng hồ treo tường
+C.Đồng hồ BIG BEN
+D.Đồng hồ báo thức
+A
+Ocean
+A.Núi
+B.Thung lũng
+C.Sông
+D.Đại dương
+D
+Thung lũng
+A.Ocean
+B.Mountain
+C.Valley
+D.Desert
+C
+Sa mạc
+A.Sahara
+B.Amazon
+C.Desert
+D.Jungle
+C
+Pear
+A.Táo
+B.Chuối
+C.Dưa
+D.Lê
+D
+Inituitive
+A.Trực giác
+B.Cảm giác
+C.Xúc giác
+D.Thính giác
+A
+Game development
+A.Lập trình web
+B.Lập trình game
+C.Lập trình hướng đối tượng
+D.Lập trình nâng cao
+B
+Physics
+A.Toán học
+B.Hóa học
+C.Văn học
+D.Vật lý
+D
+Debris
+A.Đẹp trai
+B.Béo
+C.Mảnh vỡ
+D.Gầy
+C
+Over the moon
+A.Sung sướng
+B.Buồn bã
+C.Đẹp trai
+D.Béo
+A
+Museum
+A.Công viên
+B.Nhà sách
+C.Bảo tàng
+D.Công ty
+C
+Computer Architecture
+A.Lập trình hướng đối tượng
+B.Lập trình nâng cao
+C.Kiến trúc máy tính
+D.Xác suất thống kê
+C
+Lion
+A.Hổ
+B.Sư tử
+C.Mèo
+D.Chó
+B
+Enemy
+A.Đồng đội
+B.Gia đình
+C.Bạn thân
+D.Kẻ thù
+D
+Error
+A.Lỗi
+B.Đẹp
+C.Xấu
+D.Hoàn hảo
+A
+Hôm qua
+A.Tomorrow
+B.Today
+C.Yesterday
+D.Tonight
+C
+Invite
+A.Mời
+B.Đuổi
+C.Đá
+D.Chia tay
+A
+What was the matter with him? He........ a toothache
+A. to have
+B. have
+C. has
+D. had
+D
+What subject is he......... now? Vietnamese.
+A. to learn
+B. learn
+C. learning
+D. learned
+C
+............ did she go yesterday morning? She went to the bookshop.
+A. What
+B. Where
+C. When
+D. Why
+B
+Are you free........ the evening? Yes, I am.
+A. in
+B. on
+C. at
+D. to
+A
+She is going to......... television tonight.
+A. sing
+B. play
+C. stay
+D. watch
+D
+............ is that ? It's my teacher.
+A. What
+B. Who
+C. Where
+D. How
+B
+Does she like sandwiches ?......................
+A Yes, she do
+B. Yes, she is
+C. Yes, she does
+D. Yes, she like
+C
+This is Mai.............. mother is a doctor.
+A. his
+B. she
+C. her
+D. his
+C
+She............. a banana.
+A. wants
+B. want
+C. to want
+D. wantes
+A
+What is it ? It is................
+A. eraser
+B. an eraser
+C. erasers
+D. a eraser
+B
+He is................... Vietnam
+A. from
+B. on
+C. in
+D. at
+A
+It is not hot............ the winter.
+A. on
+B. in
+C. at
+D. under
+B
+I don't like Maths...............it is difficult.
+A. and
+B. but
+C. so
+D. because
+D
+What's the matter............you?
+A. in
+B. with
+C. on
+D. of
+B
+Do you like English? Yes,I..........
+A. do
+B. am
+C. like
+D. don't
+A
+He often..................to school in the morning
+A. gos
+B. going
+C. goes
+D. to go
+C
+They are from...................................
+A. Singapore
+B. Vietnamese
+C. English
+D. American
+A
+His birthday is........................ June 1st.
+A. at
+B. on
+C. in
+D. about
+B
+A........... works in a hospital.
+A. Teacher
+B. worker
+C. Nurse
+D. farmer
+C
+I.......................... reading a book about Santa Claus.
+A. can
+B. do
+C. am
+D. are
+C
+.............................. you like to play hide and seek with me?
+A. Would
+B. Could
+C. Do
+D. If
+A
+Did you.................................. teacher's Day last month?
+A. celebrated
+B. celebrating
+C. celebrate
+D. celebrater
+C
+Does he........................ a sore-throat?
+A. has
+B. had
+C. have
+D. having
+C
+We went to the cinema....................................
+A. today
+B. yesterday
+C. tomorrow
+D. next Sunday
+B
+A housewife often does........................................
+A. homework
+B. Housework
+C. hardwork
+D. exercises
+B
+It's hot in Summer,..................... ?
+A. is it
+B. isn't it
+C. do it
+D. does it
+B
+...... your birthday? It's in May.
+A. What's
+B. When's
+C. It's
+D. Where's
+B
+Would you like..... milk? No, thanks
+A. an
+B. a
+C. some
+D. one
+C
+Can you swim, Mai?No,......
+A. I can
+B. I can't
+C. he can
+D. he can't
+B
+What's time is it? It's seven- fifty- five.
+A. 7. 55
+B. 7.15
+C. 7. 25
+D. 7. 45
+A
+What..... does Peter study at school? - He has Maths, English, Art....
+A. objects
+B. subjects
+C. food
+D. drink
+B
+Why do you like Music? Because I like......
+A. to read
+B. to draw
+C. to write
+D. to sing
+D
+I have...................... cough.
+A. the
+B. a
+C. an
+D. any
+B
+Image
+A.Hình ảnh
+B.Âm thanh
+C.Giọng nói
+D.Tai nghe
+A
+Black
+A.Màu xanh
+B.Màu đỏ
+C.Màu vàng
+D.Màu đen
+D
+Mouse
+A.Mèo
+B.Chuột
+C.Cáo
+D.Chim
+B
+Window
+A.Cửa ra vào
+B.Kính
+C.Cửa sổ
+D.Bếp
+C
+Space
+A.Vũ trụ
+B.Trái đất
+C.Không gian
+D.Đại dương
+C
+Fan
+A.Trần nhà
+B.Quạt treo tường
+C.Bàn
+D.Ghế
+B
+Board
+A.Phấn
+B.Máy chiếu
+C.Bảng
+D.Ghế
+C
+Coat
+A.Áo len
+B.Áo sơ mi
+C.Áo dài
+D.Áo khoác
+D
+Translate
+A.Dịch
+B.Đọc
+C.Viết
+D.Nói
+A
+
+
+
 
 
