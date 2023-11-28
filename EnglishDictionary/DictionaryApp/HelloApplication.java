@@ -11,7 +11,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("./view/home.fxml"));
-        primaryStage.setTitle("Mân đàn");
+        primaryStage.setTitle("Dictionary");
         primaryStage.setScene(new Scene(root, 900, 569.0));
         primaryStage.show();
     }

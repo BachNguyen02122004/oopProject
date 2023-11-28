@@ -8,10 +8,10 @@
     <children>
         <ImageView fx:id="gameImage" fitWidth="1300.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../image/youwin.jpg" />
+                <Image url="@../image/youwin1.jpg" />
             </image>
         </ImageView>
-        <Button layoutX="612.0" layoutY="597.0" onMouseClicked="#hanldePlayAgain" pickOnBounds="true" mnemonicParsing="false" styleClass="again-btn" text="Play Again" />
-        <Button layoutX="611.0" layoutY="663.0" onMouseClicked="#handlequit" pickOnBounds="true" mnemonicParsing="false" prefHeight="38.0" prefWidth="77.0" styleClass="quit-btn" text="Quit" />
+        <Button layoutX="612.0" layoutY="597.0" mnemonicParsing="false" onMouseClicked="#hanldePlayAgain" pickOnBounds="true" styleClass="again-btn" text="Play Again" />
+        <Button layoutX="611.0" layoutY="663.0" mnemonicParsing="false" onMouseClicked="#handlequit" pickOnBounds="true" prefHeight="38.0" prefWidth="77.0" styleClass="quit-btn" text="Quit" />
     </children>
 </AnchorPane>

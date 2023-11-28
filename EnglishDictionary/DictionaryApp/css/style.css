@@ -2,19 +2,28 @@
     -fx-background-color: #f2c2f3;
 }
 
-.bar{
-    -fx-cursor: hand;
+.bar {
+    -fx-cursor : hand;
 }
 
-.loupe-wrapper,.add-wrapper,.translate-wrapper,.game-wrapper{
+.add-wrapper,.translate-wrapper,.game-wrapper{
     -fx-alignment: center;
 }
+#loupe-btn, #add-btn, #translate-btn, #game-btn{
+    -fx-cursor : hand;
+    -fx-background-color : transparent;
+}
 
-.loupe-wrapper:hover,.add-wrapper:hover,.translate-wrapper:hover,.game-wrapper:hover{
+
+#loupe-btn:hover, #add-btn:hover, #translate-btn:hover, #game-btn:hover, #loupe-btn:focused, #add-btn:focused,
+#translate-btn:focused, #game-btn:focused{
     -fx-background-color: rgba(255, 255, 255, 0.5);
     -fx-background-radius: 50%;
-    -fx-padding: 10;
+
 }
+
+/* dùng để bắt sự kiện */
+
 
 #searchBtn{
     -fx-background-color: rgba(255, 255, 255, 0);
@@ -142,7 +151,7 @@
 }
 
 .active{
-    -fx-background-color: red;
+    -fx-background-color: #4919CC;
     -fx-text-fill: #fff;
 }
 
@@ -156,12 +165,19 @@
 }
 
 #choiceA,#choiceB,#choiceC,#choiceD{
+    -fx-font-size : 17;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+    -fx-text-alignment: center;
+    -fx-background-radius: 10;
+    -fx-border-radius : 10;
     -fx-cursor: hand;
     -fx-highlight-fill: transparent;
     -fx-highlight-text-fill: black;
 }
 
 #choiceA:focused, #choiceB:focused, #choiceC:focused, #choiceD:focused {
+
     -fx-faint-focus-color: transparent;
     -fx-focus-color: transparent;
 }
@@ -173,8 +189,9 @@
 .price-item {
     -fx-background-color : #4c4cf8;
     -fx-border : 0;
-    -fx-border-radius : 5;
+    -fx-background-radius: 5;
     -fx-text-fill : #fff;
+    -fx-font-size : 17;
 }
 
 /*game over*/

@@ -5,9 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.Node;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,11 +19,25 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
 
     @FXML
-    private Pane helloViewPane;
+    private AnchorPane helloViewPane;
+
+    @FXML
+    private Node NodeBtn;
+    @FXML
+    private Button searchBtn;
+    @FXML
+    private Button addBtn;
+
+    @FXML
+    private ImageView addImage;
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadView("../view/hello-view.fxml");
+
     }
 
     private void loadView(String resourcePath) {
@@ -38,9 +55,14 @@ public class HomeController implements Initializable {
         }
     }
 
+
+
+
     @FXML
     private void handleSearchSceneClick() {
         loadView("../view/hello-view.fxml");
+
+
     }
 
     @FXML

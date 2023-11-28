@@ -1,45 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.HomeController">
-    <StackPane layoutX="14.0" layoutY="158.0" styleClass="loupe-wrapper">
-        <ImageView fx:id="searchScene" fitHeight="44.0" fitWidth="44.0" onMouseClicked="#handleSearchSceneClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-            <image>
-                <Image url="@../image/loupe.png" />
-            </image>
-        </ImageView>
-    </StackPane>
 
-    <StackPane layoutX="15.0" layoutY="241.0" styleClass="add-wrapper">
-        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="229.0" onMouseClicked="#handleAddImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-            <image>
-                <Image url="@../image/add.png" />
-            </image>
-        </ImageView>
-    </StackPane>
-
-    <StackPane layoutX="14.0" layoutY="324.0" styleClass="translate-wrapper">
-        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="329.0" onMouseClicked="#handleTranslateImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-            <image>
-                <Image url="@../image/translate.png" />
-            </image>
-        </ImageView>
-    </StackPane>
-
-    <StackPane layoutX="15.0" layoutY="412.0" styleClass="game-wrapper">
-        <ImageView fitHeight="50.0" fitWidth="44.0" layoutX="14.0" layoutY="441.0" onMouseClicked="#handleOpenBookImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-            <image>
-                <Image url="@../image/open-book.png" />
-            </image>
-        </ImageView>
-    </StackPane>
-
-    <ImageView fitHeight="69.0" fitWidth="65.0" layoutX="4.0" layoutY="21.0" onMouseClicked="#handleSearchSceneClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+    <ImageView fitHeight="69.0" fitWidth="65.0" layoutX="12.0" layoutY="27.0" onMouseClicked="#handleSearchSceneClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
         <image>
             <Image url="@../image/dictionary.png" />
         </image>
     </ImageView>
     <AnchorPane fx:id="helloViewPane" layoutX="90.0" prefHeight="570.0" prefWidth="767.0" />
+   <Button id="loupe-btn" fx:id="searchBtn" layoutX="14.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#handleSearchSceneClick" prefHeight="66.0" prefWidth="66.0">
+      <graphic>
+           <ImageView fitHeight="58.0" fitWidth="45.0" onMouseClicked="#handleSearchSceneClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+               <image>
+                   <Image url="@../image/loupe.png" />
+               </image>
+           </ImageView>
+      </graphic>
+   </Button>
+   <Button fx:id="addBtn" id="add-btn" layoutX="14.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#handleAddImageClick" prefHeight="66.0" prefWidth="66.0">
+      <graphic>
+           <ImageView fx:id="addImage" fitHeight="58.0" fitWidth="45.0" onMouseClicked="#handleAddImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+               <image>
+                   <Image url="@../image/add.png" />
+               </image>
+           </ImageView>
+      </graphic>
+   </Button>
+   <Button fx:id="gameBtn" id="game-btn" layoutX="11.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#handleOpenBookImageClick" prefHeight="66.0" prefWidth="66.0">
+      <graphic>
+           <ImageView fx:id="openBookImage" fitHeight="58.0" fitWidth="45.0" onMouseClicked="#handleOpenBookImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+               <image>
+                   <Image url="@../image/open-book.png" />
+               </image>
+           </ImageView>
+      </graphic>
+   </Button>
+   <Button fx:id="translateBtn" id="translate-btn" layoutX="11.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#handleTranslateImageClick" prefHeight="66.0" prefWidth="66.0">
+      <graphic>
+           <ImageView fitHeight="58.0" fitWidth="45.0" onMouseClicked="#handleTranslateImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+               <image>
+                   <Image url="@../image/translate.png" />
+               </image>
+           </ImageView>
+      </graphic>
+   </Button>
 </AnchorPane>
