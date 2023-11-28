@@ -6,6 +6,16 @@
     -fx-cursor: hand;
 }
 
+.loupe-wrapper,.add-wrapper,.translate-wrapper,.game-wrapper{
+    -fx-alignment: center;
+}
+
+.loupe-wrapper:hover,.add-wrapper:hover,.translate-wrapper:hover,.game-wrapper:hover{
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-background-radius: 50%;
+    -fx-padding: 10;
+}
+
 #searchBtn{
     -fx-background-color: rgba(255, 255, 255, 0);
 }

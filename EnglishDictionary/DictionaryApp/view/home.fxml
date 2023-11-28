@@ -4,30 +4,42 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApp.app.HomeController">
-    <ImageView fx:id="searchScene" fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="127.0" onMouseClicked="#handleSearchSceneClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-        <image>
-            <Image url="@../image/loupe.png" />
-        </image>
-    </ImageView>
-    <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="229.0" onMouseClicked="#handleAddImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-        <image>
-            <Image url="@../image/add.png" />
-        </image>
-    </ImageView>
-    <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="329.0" onMouseClicked="#handleTranslateImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-        <image>
-            <Image url="@../image/translate.png" />
-        </image>
-    </ImageView>
-    <ImageView fitHeight="50.0" fitWidth="44.0" layoutX="14.0" layoutY="441.0" onMouseClicked="#handleOpenBookImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
-        <image>
-            <Image url="@../image/open-book.png" />
-        </image>
-    </ImageView>
+    <StackPane layoutX="14.0" layoutY="158.0" styleClass="loupe-wrapper">
+        <ImageView fx:id="searchScene" fitHeight="44.0" fitWidth="44.0" onMouseClicked="#handleSearchSceneClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <image>
+                <Image url="@../image/loupe.png" />
+            </image>
+        </ImageView>
+    </StackPane>
+
+    <StackPane layoutX="15.0" layoutY="241.0" styleClass="add-wrapper">
+        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="229.0" onMouseClicked="#handleAddImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <image>
+                <Image url="@../image/add.png" />
+            </image>
+        </ImageView>
+    </StackPane>
+
+    <StackPane layoutX="14.0" layoutY="324.0" styleClass="translate-wrapper">
+        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="14.0" layoutY="329.0" onMouseClicked="#handleTranslateImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <image>
+                <Image url="@../image/translate.png" />
+            </image>
+        </ImageView>
+    </StackPane>
+
+    <StackPane layoutX="15.0" layoutY="412.0" styleClass="game-wrapper">
+        <ImageView fitHeight="50.0" fitWidth="44.0" layoutX="14.0" layoutY="441.0" onMouseClicked="#handleOpenBookImageClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
+            <image>
+                <Image url="@../image/open-book.png" />
+            </image>
+        </ImageView>
+    </StackPane>
+
     <ImageView fitHeight="69.0" fitWidth="65.0" layoutX="4.0" layoutY="21.0" onMouseClicked="#handleSearchSceneClick" pickOnBounds="true" preserveRatio="true" styleClass="bar">
         <image>
             <Image url="@../image/dictionary.png" />
         </image>
     </ImageView>
-    <AnchorPane fx:id="helloViewPane" layoutX="71.0" prefHeight="569.0" prefWidth="786.0" />
+    <AnchorPane fx:id="helloViewPane" layoutX="90.0" prefHeight="570.0" prefWidth="767.0" />
 </AnchorPane>
